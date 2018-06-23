@@ -1,0 +1,202 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Interpolation Utilities &#8212; dymos 0.8.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.8.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="dymos.utils.matrix_partials_wizard" href="matrix_partials_wizard.html" />
+    <link rel="prev" title="Useful Tools and Components" href="tools_and_components.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="matrix_partials_wizard.html" title="dymos.utils.matrix_partials_wizard"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tools_and_components.html" title="Useful Tools and Components"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">dymos 0.8.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../user_guide.html" >Dymos User’s Guide</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="tools_and_components.html" accesskey="U">Useful Tools and Components</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Interpolation Utilities</a><ul>
+<li><a class="reference internal" href="#what-this-approach-does">What this approach does:</a></li>
+<li><a class="reference internal" href="#so-how-do-you-specify-a-control-profile-guess">So how do you specify a control profile guess?</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tools_and_components.html"
+                        title="previous chapter">Useful Tools and Components</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="matrix_partials_wizard.html"
+                        title="next chapter">dymos.utils.matrix_partials_wizard</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/user_guide/tools_and_components/interpolation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="interpolation-utilities">
+<h1>Interpolation Utilities<a class="headerlink" href="#interpolation-utilities" title="Permalink to this headline">¶</a></h1>
+<p>The direct optimal control techniques employed by Dymos are more likely to be
+successful with a reasonable initial guess.  One way to accomplish this is to use
+the following procedure for optimizing a case:</p>
+<ol class="arabic simple">
+<li>Provide guesses for phase times, <em>initial</em> state values, and a notional control history.</li>
+<li>Use <code class="docutils literal"><span class="pre">phase.simulate(nodes='disc')</span></code> to simulate the phase and have the results populated at the state discretization nodes.</li>
+<li>Copy these state values at the state discretization nodes back into the problem.</li>
+</ol>
+<p>[TODO Example]</p>
+<ol class="arabic simple" start="4">
+<li>Call run-driver to optimize the problem</li>
+</ol>
+<div class="section" id="what-this-approach-does">
+<h2>What this approach does:<a class="headerlink" href="#what-this-approach-does" title="Permalink to this headline">¶</a></h2>
+<p>The implicit collocation techniques drive <em>defect constraints</em> to zero during the course of an
+optimization.  When those constraints are zero, the time-histories of the states are <em>correct</em> to
+the extent that the current grid (number of segments, segment orders, and segment distribution) allows.</p>
+<p>By initializing the optimization with the results of a physical simuation, we are giving the optimize
+a guess in which the defect constraints are largely satisfied.  In fact, if you use this technique and
+find that the defect constraints are not initially satisfied, this suggests that the current grid
+is not capable of accurately representing the dynamics of the problem.</p>
+<p>Barring a miracle or a lot of luck, the guessed control profile will not be optimal, but the
+initial trajectory will be physically compatible with those controls.</p>
+</div>
+<div class="section" id="so-how-do-you-specify-a-control-profile-guess">
+<h2>So how do you specify a control profile guess?<a class="headerlink" href="#so-how-do-you-specify-a-control-profile-guess" title="Permalink to this headline">¶</a></h2>
+<p>Dymos phases provide an interpolation method <cite>phase.interpolate</cite>, with the following call
+signature:</p>
+<dl class="method">
+<dt>
+<code class="descclassname">PhaseBase.</code><code class="descname">interpolate</code><span class="sig-paren">(</span><em>xs=None</em>, <em>ys=None</em>, <em>nodes=None</em>, <em>kind='linear'</em>, <em>axis=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/dymos/phases/phase_base.html#PhaseBase.interpolate"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Return an array of values on [a,b] linearly interpolated to the
+input nodes of the phase.</p>
+<dl class="docutils">
+<dt>xs <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd>Array of integration variable values.</dd>
+<dt>ys <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd>Array of control/state/parameter values.</dd>
+<dt>nodes <span class="classifier-delimiter">:</span> <span class="classifier">str or None</span></dt>
+<dd>The name of the node subset or None (default).</dd>
+<dt>kind <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>Specifies the kind of interpolation, as per the scipy.interpolate package.
+One of (‘linear’, ‘nearest’, ‘zero’, ‘slinear’, ‘quadratic’, ‘cubic’
+where ‘zero’, ‘slinear’, ‘quadratic’ and ‘cubic’ refer to a spline
+interpolation of zeroth, first, second or third order) or as an
+integer specifying the order of the spline interpolator to use.
+Default is ‘linear’.</dd>
+<dt>axis <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>Specifies the axis along which interpolation should be performed.  Default is
+the first axis (0).</dd>
+</dl>
+<dl class="docutils">
+<dt>np.array</dt>
+<dd>The values of y interpolated at nodes of the specified type.</dd>
+</dl>
+</dd></dl>
+
+<p>This method is necessary because the distribution of nodes across a phase is dependent on the
+grid definition (number of segments, segment orders, and segment distribution).  Using something
+like <cite>numpy.linspace</cite> would provide values linearly interpolated onto evenly spaced nodes, but
+the nodes in the phase are typically not evenly spaced.</p>
+<p>In practice, for the Gauss-Lobatto and Radau-Pseudospectral transcriptions,
+use <cite>nodes=’all’</cite> for interpolating control values and <cite>nodes=’disc’</cite> for interpolating
+state values.  For GLM phases no node specification is necessary, values will be provided
+at the segment/time-step boundaries.</p>
+<p>[TODO Example]</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="matrix_partials_wizard.html" title="dymos.utils.matrix_partials_wizard"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tools_and_components.html" title="Useful Tools and Components"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">dymos 0.8.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../user_guide.html" >Dymos User’s Guide</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="tools_and_components.html" >Useful Tools and Components</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, National Aeronautics and Space Administration.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
+    </div>
+  </body>
+</html>

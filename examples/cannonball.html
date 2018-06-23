@@ -1,0 +1,206 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Pseudospectral Time Integration of a Ballistic Cannonball &#8212; dymos 0.8.1 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.8.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.8.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Pseudospectral Time Integration of a Ballistic Cannonball</a><ul>
+<li><a class="reference internal" href="#defining-the-system">1. Defining the system</a></li>
+<li><a class="reference internal" href="#solving-an-initial-value-problem">1. Solving an initial value problem</a></li>
+<li><a class="reference internal" href="#solving-a-two-point-boundary-value-problem">2. Solving a two point boundary value problem</a></li>
+<li><a class="reference internal" href="#maximizing-the-range-of-the-cannonball">3. Maximizing the range of the cannonball</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/examples/cannonball.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pseudospectral-time-integration-of-a-ballistic-cannonball">
+<h1>Pseudospectral Time Integration of a Ballistic Cannonball<a class="headerlink" href="#pseudospectral-time-integration-of-a-ballistic-cannonball" title="Permalink to this headline">¶</a></h1>
+<p>First, we begin with an example on the use of implicit simulation of a simple system without
+dynamic controls: the flight of a cannonball.</p>
+<p>[fig]</p>
+<div class="section" id="defining-the-system">
+<h2>1. Defining the system<a class="headerlink" href="#defining-the-system" title="Permalink to this headline">¶</a></h2>
+<p>We can express the equations of motion of a simple cannonball in a 2D rectilinear gravity field as:</p>
+<div class="math">
+\[\begin{split}\frac{\partial x}{\partial t} &amp;= v_x \\
+\frac{\partial y}{\partial t} &amp;= v_y \\
+\frac{\partial v_x}{\partial t} &amp;= 0.0 \\
+\frac{\partial v_y}{\partial t} &amp;= -g \\\end{split}\]</div>
+<p>These equations of motion are computed by the following OpenMDAO ExplicitComponent.  There
+are a few key points to note about the equations of motion:</p>
+<ul class="simple">
+<li>while <em>x</em> and <em>y</em> are state variables, they are not inputs to the above equations.</li>
+<li>in addition to computing rates of the state variables, the equations of motion compute the velocity magnitude and flight path angle (<span class="math">\(\gamma\)</span>)</li>
+<li>we use OpenMDAO’s <code class="docutils literal"><span class="pre">compute_partials</span></code> method to provide derivatives for all outputs.</li>
+<li>since the function is vectorized (computes values at all nodes simultaneously), and the outputs at one node is independent of the other nodes, the partial derivatives are in the form of a diagonal matrix.</li>
+</ul>
+<p>—</p>
+<p>To make the above system work with Dymos, we wrap it in an <code class="docutils literal"><span class="pre">ODEFunction</span></code> object.
+In the following code, we inherit from <code class="docutils literal"><span class="pre">|project|2.ODEFunction</span></code> and use <code class="docutils literal"><span class="pre">declare_time</span></code>
+and <code class="docutils literal"><span class="pre">declare_state</span></code> to provide Dymos with information about the time variable and
+state variables, respectively.</p>
+<p>—</p>
+</div>
+<div class="section" id="solving-an-initial-value-problem">
+<h2>1. Solving an initial value problem<a class="headerlink" href="#solving-an-initial-value-problem" title="Permalink to this headline">¶</a></h2>
+<p>With fixed initial states and time we have a so-called <em>initial value problem</em> (IVP).
+If we also assume that the final time is determined a-priori then there is a single physical trajectory for the system.
+We can find the corresponding trajectory by setting up a simple optimal control problem.</p>
+<p>Having defined our ODEFunction, we now go about setting up an OpenMDAO problem to solve the
+corresponding optimal control problem.</p>
+</div>
+<div class="section" id="solving-a-two-point-boundary-value-problem">
+<h2>2. Solving a two point boundary value problem<a class="headerlink" href="#solving-a-two-point-boundary-value-problem" title="Permalink to this headline">¶</a></h2>
+<p>Typically when predicting the trajectory of a cannonball, it’s useful to know the impact point of the shot.
+In this case we have fixed initial conditions for the state of the cannonball, and require that the
+final altitude (<span class="math">\(y\)</span>) of the cannonball is zero.  To find this solution, we must allow the
+duration of the flight (<span class="math">\(t_p\)</span>) to be a free variable.  The problem can be states as:</p>
+<div class="math">
+\[\begin{split}t_0 &amp;= 0 \, s \\
+t_f &amp;= \mathrm{free} \\
+x(0) &amp;= 0 \, \mathrm{m} \\
+y(0) &amp;= 0 \, \mathrm{m} \\
+v_x(0) &amp;= 100 \, \mathrm{m/s} \\
+v_y(0) &amp;= 50 \, \mathrm{m/s} \\
+y(t_f) &amp;= 0 \, \mathrm{m}\end{split}\]</div>
+<p>To solve this problem we go through the following steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Create an OpenMDAO problem and assign an optimization driver.</li>
+<li>Instantiate a Dymos <em>Phase</em> - Here we use a <code class="docutils literal"><span class="pre">GaussLobattoPhase</span></code><ul>
+<li>The phase is responsible for integrating the ODE</li>
+<li>The number of polynomial segments and the state transcription order
+of the segments affects the speed and accuracy of the solution.</li>
+</ul>
+</li>
+<li>Set the time, state, and control options appropriately for the given problem.</li>
+<li>Set the objective function appropriately<ul>
+<li>All problems must have an objective, even if it has no free variables (pure simulation)</li>
+<li>The <code class="docutils literal"><span class="pre">set_objective</span></code> method on Phases provides some convenience over the default
+OpenMDAO <code class="docutils literal"><span class="pre">add_objective</span></code> method, but either one would work.</li>
+</ul>
+</li>
+<li>Provide initial guesses<ul>
+<li>State values are provided at discretization nodes</li>
+<li>Control values are provided at all nodes.</li>
+<li>Initial time (<span class="math">\(t_0\)</span>) and phase duration (<span class="math">\(t_p\)</span>) guess are provided</li>
+</ul>
+</li>
+<li>Run the problem driver.</li>
+<li>Examine the results.<ul>
+<li>Did the optimizer converge?  The answer is likely nonsense in nonconverged runs.</li>
+<li>Even if the optimizer converged, was the transcription grid (number of segments and segment order) capable of providing accurate results?</li>
+</ul>
+</li>
+</ol>
+</div></blockquote>
+<p>—</p>
+</div>
+<div class="section" id="maximizing-the-range-of-the-cannonball">
+<h2>3. Maximizing the range of the cannonball<a class="headerlink" href="#maximizing-the-range-of-the-cannonball" title="Permalink to this headline">¶</a></h2>
+<p>The previous examples demonstrate some basic capabilities of Dymos but don’t actually
+optimize anything - the optimization driver is essentially being used as a solver.  In this
+case we seek to maximize the range travelled by the cannonball subject to a limit on its
+initial velocity.  This example will demonstrate the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Using <code class="docutils literal"><span class="pre">set_objective</span></code> to maximize the final value of a state variable.</li>
+<li>Using <code class="docutils literal"><span class="pre">add_boundary_constarint</span></code> to impose a limit on the initial velocity of the cannonball.</li>
+</ul>
+</div></blockquote>
+<p>—</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.8.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, National Aeronautics and Space Administration.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
+    </div>
+  </body>
+</html>
