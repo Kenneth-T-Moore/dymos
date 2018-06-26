@@ -40,9 +40,6 @@
           <a href="../../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="gauss-lobatto.html" title="High-Order Gauss-Lobatto Collocation"
              accesskey="N">next</a> |</li>
         <li class="right" >
@@ -91,9 +88,9 @@
 <p>Dymos implements several different <em>transcriptions</em> which are used to convert a continuous
 optimal control problem into an analogous nonlinear programming (NLP) problem.</p>
 <p>Dymos implements multi-phase trajectory optimization.  That is to say, in each phase
-the state and control time histories are continuous.  At the beginning or end of each phase,
+the state and time histories are continuous.  At the beginning or end of each phase,
 a discrete jump in the value of a state variable is permitted.  This comes in useful when
-modelling things like stage or store (mass) jettisons or impulsive maneuvers (:math:<a href="#id1"><span class="problematic" id="id2">`</span></a>Delta`Vs).
+modeling things like stage or store (mass) jettisons or impulsive changes in velocity.
 By linking phases together with continuity constraints, a trajectory or series of trajectories
 can be assembled.</p>
 <p>Different transcription methods are supported via different Phase types in Dymos.  Currently,
@@ -102,7 +99,6 @@ the software supports the following techniques:</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="gauss-lobatto.html">High-Order Gauss-Lobatto Collocation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="radau-pseudospectral.html">Radau Pseudospectral Method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general_linear_methods.html">General Linear Methods</a></li>
 </ul>
 </div>
 </div>
@@ -119,9 +115,6 @@ the software supports the following techniques:</p>
         <li class="right" style="margin-right: 10px">
           <a href="../../../genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="../../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
         <li class="right" >
           <a href="gauss-lobatto.html" title="High-Order Gauss-Lobatto Collocation"
              >next</a> |</li>

@@ -40,9 +40,6 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="double_integrator.html" title="Double Integrator"
              accesskey="N">next</a> |</li>
         <li class="right" >
@@ -138,9 +135,10 @@ sparsity (such as SLSQP) since it significantly reduces the cost of computing th
 <h2>Step 1: Using OpenMDAO’s Simul-Coloring Capability<a class="headerlink" href="#step-1-using-openmdao-s-simul-coloring-capability" title="Permalink to this headline">¶</a></h2>
 <p>OpenMDAO supports dynamic simul-coloring, meaning it can automatically run the Jacobian coloring
 algorithm before handing the problem to the optimizer.  To enable this capability, simply
-add the following lines to the pyoptsparsedriver.</p>
-<p>This enables the coloring algorithm and runs 5 passes of the Jacobian randomization algorithm,
-in an effort to ensure that we don’t include any “incidental” zeros as part of the spasity.</p>
+add the following lines to the driver.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;dynamic_simul_derivs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
 <p>To demonstrate this capability we’ll instantiate the brachistochrone problem with 200 3rd-order Gauss-Lobatto segments.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openmdao.api</span> <span class="kn">import</span> <span class="n">Problem</span><span class="p">,</span> <span class="n">Group</span><span class="p">,</span> <span class="n">pyOptSparseDriver</span><span class="p">,</span> <span class="n">DirectSolver</span>
 <span class="kn">from</span> <span class="nn">openmdao.utils.assert_utils</span> <span class="kn">import</span> <span class="n">assert_rel_error</span>
@@ -154,9 +152,6 @@ in an effort to ensure that we don’t include any “incidental” zeros as par
 
 <span class="c1"># Compute sparsity/coloring when run_driver is called</span>
 <span class="n">p</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;dynamic_simul_derivs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
-
-<span class="c1"># p.driver.opt_settings[&#39;Major iterations limit&#39;] = 1000</span>
-<span class="c1"># p.driver.opt_settings[&#39;iSumm&#39;] = 6</span>
 
 <span class="n">phase</span> <span class="o">=</span> <span class="n">Phase</span><span class="p">(</span><span class="s1">&#39;gauss-lobatto&#39;</span><span class="p">,</span>
               <span class="n">ode_class</span><span class="o">=</span><span class="n">BrachistochroneODE</span><span class="p">,</span>
@@ -283,9 +278,6 @@ uncompressed transcription may give better performance.</p>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
         <li class="right" >
           <a href="double_integrator.html" title="Double Integrator"
              >next</a> |</li>

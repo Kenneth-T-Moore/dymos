@@ -25,7 +25,6 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Indices and tables" href="../api_docs.html" />
     <link rel="prev" title="SSTO Lunar Ascent with Linear Tangent Guidance" href="ssto_moon_linear_tangent.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -39,12 +38,6 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../api_docs.html" title="Indices and tables"
-             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="ssto_moon_linear_tangent.html" title="SSTO Lunar Ascent with Linear Tangent Guidance"
              accesskey="P">previous</a> |</li>
@@ -96,9 +89,6 @@
   <h4>Previous topic</h4>
   <p class="topless"><a href="ssto_moon_linear_tangent.html"
                         title="previous chapter">SSTO Lunar Ascent with Linear Tangent Guidance</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../api_docs.html"
-                        title="next chapter">Indices and tables</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -934,8 +924,8 @@ greatly improve the performance of Dymos.</p>
 </pre></div>
 </div>
 <div class="cell border-box-sizing code_cell rendered"><div class="output_area"><pre>
-Using tolerance: 1e-17
-Most common number of zero entries (36878 of 38718) repeated 6 times out of 11 tolerances tested.
+Using tolerance: 1e-20
+Most common number of zero entries (36878 of 38718) repeated 9 times out of 11 tolerances tested.
 
 Total jacobian shape: (239, 162) 
 
@@ -960,11 +950,11 @@ Optimization Problem -- Optimization using pyOpt_sparse
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                   54.6162
-       User Objective Time :      50.4341
-       User Sensitivity Time :     2.6138
-       Interface Time :            0.7116
-       Opt Solver Time:            0.8566
+    Total Time:                   64.4708
+       User Objective Time :      59.3283
+       User Sensitivity Time :     3.2451
+       Interface Time :            0.9041
+       Opt Solver Time:            0.9933
     Calls to Objective Function :      40
     Calls to Sens Function :           39
 
@@ -975,7 +965,7 @@ Optimization Problem -- Optimization using pyOpt_sparse
 
    Variables (c - continuous, i - integer, d - discrete)
       Index  Name                                      Type      Lower Bound            Value      Upper Bound     Status
-          0  phase0.time_extents.t_initial_0              c     0.000000E+00     3.074291E-15     0.000000E+00         lu
+          0  phase0.time_extents.t_initial_0              c     0.000000E+00     6.822794E-16     0.000000E+00         lu
           1  phase0.time_extents.t_duration_0             c     8.333333E-02     1.567585E+00     2.777778E+00           
           2  phase0.indep_controls.controls:alt_0         c     0.000000E+00     1.074136E+01     5.000000E+01           
           3  phase0.indep_controls.controls:alt_1         c     0.000000E+00     1.214671E+01     5.000000E+01           
@@ -1140,66 +1130,66 @@ Optimization Problem -- Optimization using pyOpt_sparse
 
    Constraints (i - inequality, e - equality)
       Index  Name                                                        Type          Lower           Value           Upper    Status
-          0  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    4.042124E-13    0.000000E+00          
-          1  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00   -5.796254E-13    0.000000E+00          
-          2  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    7.406712E-13    0.000000E+00          
-          3  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00   -6.172260E-13    0.000000E+00          
-          4  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00   -3.580943E-11    0.000000E+00          
-          5  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    3.670131E-10    0.000000E+00          
-          6  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    2.388080E-08    0.000000E+00          
-          7  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    6.428352E-08    0.000000E+00          
-          8  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    5.554456E-09    0.000000E+00          
-          9  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    8.707478E-09    0.000000E+00          
-         10  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    9.632051E-09    0.000000E+00          
-         11  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    9.219195E-09    0.000000E+00          
-         12  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    1.512649E-07    0.000000E+00          
-         13  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    1.571040E-07    0.000000E+00          
-         14  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    5.207062E-08    0.000000E+00          
-         15  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    4.821375E-08    0.000000E+00          
-         16  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    1.451110E-08    0.000000E+00          
-         17  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    7.754086E-09    0.000000E+00          
-         18  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    6.833678E-09    0.000000E+00          
-         19  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    5.792508E-09    0.000000E+00          
-         20  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    2.541393E-08    0.000000E+00          
-         21  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    7.678897E-09    0.000000E+00          
-         22  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    6.255476E-08    0.000000E+00          
-         23  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    5.096138E-08    0.000000E+00          
-         24  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    4.501431E-10    0.000000E+00          
-         25  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    1.050945E-10    0.000000E+00          
-         26  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    2.645254E-12    0.000000E+00          
-         27  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    2.909780E-13    0.000000E+00          
-         28  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00   -1.029598E-13    0.000000E+00          
-         29  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00   -4.194657E-14    0.000000E+00          
-         30  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.383328E-17    0.000000E+00          
-         31  phase0.collocation_constraint.defects:range                    e   0.000000E+00   -2.383328E-17    0.000000E+00          
-         32  phase0.collocation_constraint.defects:range                    e   0.000000E+00    8.266419E-17    0.000000E+00          
-         33  phase0.collocation_constraint.defects:range                    e   0.000000E+00   -5.510946E-17    0.000000E+00          
-         34  phase0.collocation_constraint.defects:range                    e   0.000000E+00    7.358160E-14    0.000000E+00          
-         35  phase0.collocation_constraint.defects:range                    e   0.000000E+00   -6.859081E-13    0.000000E+00          
-         36  phase0.collocation_constraint.defects:range                    e   0.000000E+00    3.237497E-12    0.000000E+00          
-         37  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.740887E-12    0.000000E+00          
-         38  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.725275E-12    0.000000E+00          
-         39  phase0.collocation_constraint.defects:range                    e   0.000000E+00    8.564173E-13    0.000000E+00          
-         40  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.876346E-12    0.000000E+00          
-         41  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.722978E-12    0.000000E+00          
-         42  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.468624E-11    0.000000E+00          
-         43  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.669007E-11    0.000000E+00          
-         44  phase0.collocation_constraint.defects:range                    e   0.000000E+00    7.381156E-12    0.000000E+00          
-         45  phase0.collocation_constraint.defects:range                    e   0.000000E+00    7.370443E-12    0.000000E+00          
-         46  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.079224E-12    0.000000E+00          
-         47  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.348950E-12    0.000000E+00          
-         48  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.100571E-12    0.000000E+00          
-         49  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.070170E-12    0.000000E+00          
-         50  phase0.collocation_constraint.defects:range                    e   0.000000E+00    5.469764E-13    0.000000E+00          
-         51  phase0.collocation_constraint.defects:range                    e   0.000000E+00    9.892209E-13    0.000000E+00          
-         52  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.402901E-12    0.000000E+00          
-         53  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.509038E-12    0.000000E+00          
-         54  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.065317E-13    0.000000E+00          
-         55  phase0.collocation_constraint.defects:range                    e   0.000000E+00    3.794511E-14    0.000000E+00          
-         56  phase0.collocation_constraint.defects:range                    e   0.000000E+00   -1.019525E-15    0.000000E+00          
-         57  phase0.collocation_constraint.defects:range                    e   0.000000E+00    9.093061E-16    0.000000E+00          
-         58  phase0.collocation_constraint.defects:range                    e   0.000000E+00    6.554152E-16    0.000000E+00          
-         59  phase0.collocation_constraint.defects:range                    e   0.000000E+00   -1.620663E-15    0.000000E+00          
+          0  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00   -3.126926E-13    0.000000E+00          
+          1  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    7.931716E-13    0.000000E+00          
+          2  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00   -1.022832E-12    0.000000E+00          
+          3  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    1.234452E-13    0.000000E+00          
+          4  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00   -3.554080E-11    0.000000E+00          
+          5  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    3.677384E-10    0.000000E+00          
+          6  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    2.388069E-08    0.000000E+00          
+          7  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    6.428461E-08    0.000000E+00          
+          8  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    5.553205E-09    0.000000E+00          
+          9  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    8.707541E-09    0.000000E+00          
+         10  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    9.632261E-09    0.000000E+00          
+         11  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    9.218892E-09    0.000000E+00          
+         12  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    1.512646E-07    0.000000E+00          
+         13  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    1.571033E-07    0.000000E+00          
+         14  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    5.207057E-08    0.000000E+00          
+         15  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    4.821416E-08    0.000000E+00          
+         16  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    1.451130E-08    0.000000E+00          
+         17  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    7.755056E-09    0.000000E+00          
+         18  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    6.833772E-09    0.000000E+00          
+         19  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    5.792415E-09    0.000000E+00          
+         20  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    2.541426E-08    0.000000E+00          
+         21  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    7.678668E-09    0.000000E+00          
+         22  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    6.255478E-08    0.000000E+00          
+         23  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    5.096136E-08    0.000000E+00          
+         24  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    4.500390E-10    0.000000E+00          
+         25  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    1.050509E-10    0.000000E+00          
+         26  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    2.455678E-12    0.000000E+00          
+         27  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    1.410802E-13    0.000000E+00          
+         28  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    3.050660E-14    0.000000E+00          
+         29  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    7.626650E-14    0.000000E+00          
+         30  phase0.collocation_constraint.defects:range                    e   0.000000E+00    0.000000E+00    0.000000E+00          
+         31  phase0.collocation_constraint.defects:range                    e   0.000000E+00   -1.191664E-17    0.000000E+00          
+         32  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.377737E-16    0.000000E+00          
+         33  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.102189E-16    0.000000E+00          
+         34  phase0.collocation_constraint.defects:range                    e   0.000000E+00    7.353963E-14    0.000000E+00          
+         35  phase0.collocation_constraint.defects:range                    e   0.000000E+00   -6.858242E-13    0.000000E+00          
+         36  phase0.collocation_constraint.defects:range                    e   0.000000E+00    3.237935E-12    0.000000E+00          
+         37  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.740286E-12    0.000000E+00          
+         38  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.726252E-12    0.000000E+00          
+         39  phase0.collocation_constraint.defects:range                    e   0.000000E+00    8.568081E-13    0.000000E+00          
+         40  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.875908E-12    0.000000E+00          
+         41  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.723124E-12    0.000000E+00          
+         42  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.468702E-11    0.000000E+00          
+         43  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.669131E-11    0.000000E+00          
+         44  phase0.collocation_constraint.defects:range                    e   0.000000E+00    7.380521E-12    0.000000E+00          
+         45  phase0.collocation_constraint.defects:range                    e   0.000000E+00    7.370998E-12    0.000000E+00          
+         46  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.078602E-12    0.000000E+00          
+         47  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.348328E-12    0.000000E+00          
+         48  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.101227E-12    0.000000E+00          
+         49  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.068566E-12    0.000000E+00          
+         50  phase0.collocation_constraint.defects:range                    e   0.000000E+00    5.478231E-13    0.000000E+00          
+         51  phase0.collocation_constraint.defects:range                    e   0.000000E+00    9.900025E-13    0.000000E+00          
+         52  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.401917E-12    0.000000E+00          
+         53  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.513850E-12    0.000000E+00          
+         54  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.050626E-13    0.000000E+00          
+         55  phase0.collocation_constraint.defects:range                    e   0.000000E+00    3.983397E-14    0.000000E+00          
+         56  phase0.collocation_constraint.defects:range                    e   0.000000E+00   -3.692334E-15    0.000000E+00          
+         57  phase0.collocation_constraint.defects:range                    e   0.000000E+00    5.483392E-15    0.000000E+00          
+         58  phase0.collocation_constraint.defects:range                    e   0.000000E+00   -1.704080E-15    0.000000E+00          
+         59  phase0.collocation_constraint.defects:range                    e   0.000000E+00    4.170824E-16    0.000000E+00          
          60  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
          61  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
          62  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
@@ -1209,10 +1199,10 @@ Optimization Problem -- Optimization using pyOpt_sparse
          66  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
          67  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
          68  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
-         69  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    9.094947E-13    0.000000E+00          
+         69  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
          70  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
          71  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
-         72  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
+         72  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    2.273737E-13    0.000000E+00          
          73  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
          74  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
          75  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
@@ -1242,34 +1232,34 @@ Optimization Problem -- Optimization using pyOpt_sparse
          99  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
         100  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
         101  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
-        102  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -1.762124E-13    0.000000E+00          
-        103  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    3.720040E-13    0.000000E+00          
-        104  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    3.876673E-12    0.000000E+00          
-        105  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    1.216967E-12    0.000000E+00          
-        106  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -3.426352E-14    0.000000E+00          
-        107  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    5.485223E-13    0.000000E+00          
-        108  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    1.393791E-12    0.000000E+00          
-        109  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -1.785068E-13    0.000000E+00          
-        110  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    2.517757E-13    0.000000E+00          
-        111  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -6.711980E-13    0.000000E+00          
-        112  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -9.300099E-14    0.000000E+00          
-        113  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    1.605491E-12    0.000000E+00          
-        114  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    1.350962E-12    0.000000E+00          
-        115  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -1.840441E-12    0.000000E+00          
-        116  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00   -1.236780E-10    0.000000E+00          
-        117  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    1.390321E-10    0.000000E+00          
-        118  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    2.913342E-11    0.000000E+00          
-        119  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    1.402720E-11    0.000000E+00          
-        120  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00   -7.523437E-11    0.000000E+00          
-        121  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00   -6.962349E-11    0.000000E+00          
-        122  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    1.003653E-11    0.000000E+00          
-        123  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00   -1.303923E-11    0.000000E+00          
-        124  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    8.820953E-12    0.000000E+00          
-        125  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    7.938858E-11    0.000000E+00          
-        126  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    6.668317E-11    0.000000E+00          
-        127  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    1.402720E-11    0.000000E+00          
-        128  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00   -5.142184E-11    0.000000E+00          
-        129  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    3.549407E-10    0.000000E+00          
+        102  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    0.000000E+00    0.000000E+00          
+        103  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    5.873747E-13    0.000000E+00          
+        104  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    2.349499E-13    0.000000E+00          
+        105  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    5.219069E-13    0.000000E+00          
+        106  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    3.570137E-13    0.000000E+00          
+        107  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -1.063087E-13    0.000000E+00          
+        108  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    4.795364E-13    0.000000E+00          
+        109  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -6.326515E-13    0.000000E+00          
+        110  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    7.556331E-13    0.000000E+00          
+        111  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    3.053125E-13    0.000000E+00          
+        112  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -4.148334E-13    0.000000E+00          
+        113  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -1.957916E-14    0.000000E+00          
+        114  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -8.614829E-13    0.000000E+00          
+        115  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    1.527174E-12    0.000000E+00          
+        116  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    1.799984E-10    0.000000E+00          
+        117  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    2.745190E-10    0.000000E+00          
+        118  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00   -2.136451E-11    0.000000E+00          
+        119  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    1.564573E-12    0.000000E+00          
+        120  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    3.452850E-12    0.000000E+00          
+        121  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    8.346861E-11    0.000000E+00          
+        122  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    5.185008E-11    0.000000E+00          
+        123  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    1.715635E-11    0.000000E+00          
+        124  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    7.054065E-12    0.000000E+00          
+        125  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    5.459819E-11    0.000000E+00          
+        126  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00   -3.906037E-11    0.000000E+00          
+        127  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    1.137283E-10    0.000000E+00          
+        128  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00   -1.077532E-10    0.000000E+00          
+        129  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00   -7.241397E-11    0.000000E+00          
         130  phase0.path_constraints.path:tau                               i   1.000000E-02    5.273523E-01    1.000000E+00          
         131  phase0.path_constraints.path:tau                               i   1.000000E-02    5.354226E-01    1.000000E+00          
         132  phase0.path_constraints.path:tau                               i   1.000000E-02    5.514713E-01    1.000000E+00          
@@ -1475,12 +1465,6 @@ WARNING: The following inputs are not connected:
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../api_docs.html" title="Indices and tables"
-             >next</a> |</li>
         <li class="right" >
           <a href="ssto_moon_linear_tangent.html" title="SSTO Lunar Ascent with Linear Tangent Guidance"
              >previous</a> |</li>
