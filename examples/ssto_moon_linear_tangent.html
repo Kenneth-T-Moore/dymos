@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>SSTO Lunar Ascent with Linear Tangent Guidance &#8212; dymos 0.8.3 documentation</title>
+    <title>SSTO Lunar Ascent with Linear Tangent Guidance &#8212; dymos 0.9.0 documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.8.3',
+        VERSION:     '0.9.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="ssto_moon.html" title="SSTO Lunar Ascent"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="examples.html" accesskey="U">Examples</a> &#187;</li> 
       </ul>
     </div>
@@ -489,11 +489,11 @@ and <span class="math">\(time\)</span>, and computes <span class="math">\(\theta
 
     <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.t_initial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.t_duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">500.0</span>
-    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">350000.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">185000.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:vx&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1627.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:vy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0E-6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:m&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">50000</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">350000.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">185000.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:vx&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1627.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:vy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0E-6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:m&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">50000</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
     <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.design_parameters:a_ctrl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.01</span>
     <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.design_parameters:b_ctrl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3.0</span>
 
@@ -551,24 +551,11 @@ and <span class="math">\(time\)</span>, and computes <span class="math">\(\theta
 </pre></div>
 </div>
 <div class="cell border-box-sizing code_cell rendered"><div class="output_area"><pre>
-Using tolerance: 1e-15
-Most common number of zero entries (9498 of 10712) repeated 6 times out of 11 tolerances tested.
+Using tolerance: 1e-16
+Most common number of zero entries (9498 of 10712) repeated 7 times out of 11 tolerances tested.
 
 Total jacobian shape: (103, 104) 
 
-5 uncolored columns
-4 columns in color 1
-5 columns in color 2
-6 columns in color 3
-6 columns in color 4
-6 columns in color 5
-7 columns in color 6
-7 columns in color 7
-9 columns in color 8
-10 columns in color 9
-11 columns in color 10
-11 columns in color 11
-17 columns in color 12
 Optimization terminated successfully.    (Exit mode 0)
             Current function value: 4.817167935516228
             Iterations: 5
@@ -578,7 +565,7 @@ Optimization Complete
 -----------------------------------
 [185000.]
 [1627.]
-[-1.65436123e-21]
+[1.68021062e-21]
 </pre></div></div><div class="figure">
 <img alt="../_images/doc_plot_10.png" src="../_images/doc_plot_10.png" />
 </div>
@@ -612,7 +599,7 @@ Optimization Complete
         <li class="right" >
           <a href="ssto_moon.html" title="SSTO Lunar Ascent"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="examples.html" >Examples</a> &#187;</li> 
       </ul>
     </div>

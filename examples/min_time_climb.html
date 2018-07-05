@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Supersonic Interceptor Minimum Time Climb &#8212; dymos 0.8.3 documentation</title>
+    <title>Supersonic Interceptor Minimum Time Climb &#8212; dymos 0.9.0 documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.8.3',
+        VERSION:     '0.9.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="double_integrator.html" title="Double Integrator"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="examples.html" accesskey="U">Examples</a> &#187;</li> 
       </ul>
     </div>
@@ -257,12 +257,12 @@ M_f &amp;= 1.0 \\
 <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.t_initial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.t_duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">500</span>
 
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:r&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">50000.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:h&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">20000.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:v&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">135.964</span><span class="p">,</span> <span class="mf">283.159</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:gam&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:m&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">19030.468</span><span class="p">,</span> <span class="mf">10000.</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.controls:alpha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;control_disc&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:r&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">50000.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:h&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">20000.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:v&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">135.964</span><span class="p">,</span> <span class="mf">283.159</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:gam&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:m&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">19030.468</span><span class="p">,</span> <span class="mf">10000.</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.controls:alpha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;control_input&#39;</span><span class="p">)</span>
 
 <span class="c1"># Solve for the optimal trajectory</span>
 <span class="n">p</span><span class="o">.</span><span class="n">run_driver</span><span class="p">()</span>
@@ -295,26 +295,11 @@ M_f &amp;= 1.0 \\
 
 WARNING: The Problem has no recorder of any kind attached
 
-Using tolerance: 1e-14
+Using tolerance: 1e-15
 Most common number of zero entries (18278 of 19581) repeated 3 times out of 11 tolerances tested.
 
 Total jacobian shape: (183, 107) 
 
-2 uncolored columns
-2 columns in color 1
-6 columns in color 2
-6 columns in color 3
-6 columns in color 4
-7 columns in color 5
-7 columns in color 6
-7 columns in color 7
-7 columns in color 8
-7 columns in color 9
-7 columns in color 10
-7 columns in color 11
-8 columns in color 12
-12 columns in color 13
-16 columns in color 14
 
 
 Optimization Problem -- Optimization using pyOpt_sparse
@@ -323,13 +308,13 @@ Optimization Problem -- Optimization using pyOpt_sparse
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    5.4280
-       User Objective Time :       3.1601
-       User Sensitivity Time :     0.7308
-       Interface Time :            1.1250
-       Opt Solver Time:            0.4121
-    Calls to Objective Function :      80
-    Calls to Sens Function :           61
+    Total Time:                   11.8389
+       User Objective Time :       7.0266
+       User Sensitivity Time :     1.5729
+       Interface Time :            2.3826
+       Opt Solver Time:            0.8568
+    Calls to Objective Function :      96
+    Calls to Sens Function :           71
 
 
    Objectives
@@ -339,346 +324,346 @@ Optimization Problem -- Optimization using pyOpt_sparse
    Variables (c - continuous, i - integer, d - discrete)
       Index  Name                                      Type      Lower Bound            Value      Upper Bound     Status
           0  phase0.time_extents.t_duration_0             c     5.000000E-01     3.210853E+00     4.000000E+00           
-          1  phase0.indep_controls.controls:alpha_0       c    -8.000000E+00     5.483192E+00     8.000000E+00           
-          2  phase0.indep_controls.controls:alpha_1       c    -8.000000E+00     2.634339E+00     8.000000E+00           
-          3  phase0.indep_controls.controls:alpha_2       c    -8.000000E+00     2.031441E+00     8.000000E+00           
-          4  phase0.indep_controls.controls:alpha_3       c    -8.000000E+00     2.125775E+00     8.000000E+00           
-          5  phase0.indep_controls.controls:alpha_4       c    -8.000000E+00     1.368619E+00     8.000000E+00           
-          6  phase0.indep_controls.controls:alpha_5       c    -8.000000E+00     7.670715E-01     8.000000E+00           
-          7  phase0.indep_controls.controls:alpha_6       c    -8.000000E+00     1.328231E+00     8.000000E+00           
-          8  phase0.indep_controls.controls:alpha_7       c    -8.000000E+00     1.851369E+00     8.000000E+00           
-          9  phase0.indep_controls.controls:alpha_8       c    -8.000000E+00     1.135756E+00     8.000000E+00           
-         10  phase0.indep_controls.controls:alpha_9       c    -8.000000E+00     4.593428E-01     8.000000E+00           
-         11  phase0.indep_controls.controls:alpha_10      c    -8.000000E+00     1.100081E+00     8.000000E+00           
-         12  phase0.indep_controls.controls:alpha_11      c    -8.000000E+00     1.982758E+00     8.000000E+00           
-         13  phase0.indep_controls.controls:alpha_12      c    -8.000000E+00     2.032160E+00     8.000000E+00           
-         14  phase0.indep_controls.controls:alpha_13      c    -8.000000E+00     1.695980E+00     8.000000E+00           
-         15  phase0.indep_controls.controls:alpha_14      c    -8.000000E+00     1.421909E+00     8.000000E+00           
-         16  phase0.indep_controls.controls:alpha_15      c    -8.000000E+00     1.247788E+00     8.000000E+00           
-         17  phase0.indep_controls.controls:alpha_16      c    -8.000000E+00     1.211460E+00     8.000000E+00           
-         18  phase0.indep_controls.controls:alpha_17      c    -8.000000E+00     1.239347E+00     8.000000E+00           
-         19  phase0.indep_controls.controls:alpha_18      c    -8.000000E+00     1.257869E+00     8.000000E+00           
-         20  phase0.indep_controls.controls:alpha_19      c    -8.000000E+00     1.249122E+00     8.000000E+00           
-         21  phase0.indep_controls.controls:alpha_20      c    -8.000000E+00     1.195201E+00     8.000000E+00           
-         22  phase0.indep_controls.controls:alpha_21      c    -8.000000E+00     1.147779E+00     8.000000E+00           
-         23  phase0.indep_controls.controls:alpha_22      c    -8.000000E+00     1.158527E+00     8.000000E+00           
-         24  phase0.indep_controls.controls:alpha_23      c    -8.000000E+00     1.382469E+00     8.000000E+00           
-         25  phase0.indep_controls.controls:alpha_24      c    -8.000000E+00     1.974627E+00     8.000000E+00           
-         26  phase0.indep_controls.controls:alpha_25      c    -8.000000E+00     2.778851E+00     8.000000E+00           
-         27  phase0.indep_controls.controls:alpha_26      c    -8.000000E+00     3.638991E+00     8.000000E+00           
-         28  phase0.indep_controls.controls:alpha_27      c    -8.000000E+00     3.923657E+00     8.000000E+00           
-         29  phase0.indep_controls.controls:alpha_28      c    -8.000000E+00     3.001461E+00     8.000000E+00           
-         30  phase0.indep_controls.controls:alpha_29      c    -8.000000E+00    -2.435091E-01     8.000000E+00           
-         31  phase0.indep_controls.controls:alpha_30      c    -8.000000E+00    -6.927164E+00     8.000000E+00           
+          1  phase0.indep_controls.controls:alpha_0       c    -8.000000E+00     5.483147E+00     8.000000E+00           
+          2  phase0.indep_controls.controls:alpha_1       c    -8.000000E+00     2.634371E+00     8.000000E+00           
+          3  phase0.indep_controls.controls:alpha_2       c    -8.000000E+00     2.031464E+00     8.000000E+00           
+          4  phase0.indep_controls.controls:alpha_3       c    -8.000000E+00     2.125766E+00     8.000000E+00           
+          5  phase0.indep_controls.controls:alpha_4       c    -8.000000E+00     1.368612E+00     8.000000E+00           
+          6  phase0.indep_controls.controls:alpha_5       c    -8.000000E+00     7.670910E-01     8.000000E+00           
+          7  phase0.indep_controls.controls:alpha_6       c    -8.000000E+00     1.328292E+00     8.000000E+00           
+          8  phase0.indep_controls.controls:alpha_7       c    -8.000000E+00     1.851437E+00     8.000000E+00           
+          9  phase0.indep_controls.controls:alpha_8       c    -8.000000E+00     1.135748E+00     8.000000E+00           
+         10  phase0.indep_controls.controls:alpha_9       c    -8.000000E+00     4.592728E-01     8.000000E+00           
+         11  phase0.indep_controls.controls:alpha_10      c    -8.000000E+00     1.100061E+00     8.000000E+00           
+         12  phase0.indep_controls.controls:alpha_11      c    -8.000000E+00     1.982795E+00     8.000000E+00           
+         13  phase0.indep_controls.controls:alpha_12      c    -8.000000E+00     2.032157E+00     8.000000E+00           
+         14  phase0.indep_controls.controls:alpha_13      c    -8.000000E+00     1.695937E+00     8.000000E+00           
+         15  phase0.indep_controls.controls:alpha_14      c    -8.000000E+00     1.421927E+00     8.000000E+00           
+         16  phase0.indep_controls.controls:alpha_15      c    -8.000000E+00     1.247832E+00     8.000000E+00           
+         17  phase0.indep_controls.controls:alpha_16      c    -8.000000E+00     1.211359E+00     8.000000E+00           
+         18  phase0.indep_controls.controls:alpha_17      c    -8.000000E+00     1.239160E+00     8.000000E+00           
+         19  phase0.indep_controls.controls:alpha_18      c    -8.000000E+00     1.257885E+00     8.000000E+00           
+         20  phase0.indep_controls.controls:alpha_19      c    -8.000000E+00     1.249305E+00     8.000000E+00           
+         21  phase0.indep_controls.controls:alpha_20      c    -8.000000E+00     1.195190E+00     8.000000E+00           
+         22  phase0.indep_controls.controls:alpha_21      c    -8.000000E+00     1.147560E+00     8.000000E+00           
+         23  phase0.indep_controls.controls:alpha_22      c    -8.000000E+00     1.158433E+00     8.000000E+00           
+         24  phase0.indep_controls.controls:alpha_23      c    -8.000000E+00     1.382530E+00     8.000000E+00           
+         25  phase0.indep_controls.controls:alpha_24      c    -8.000000E+00     1.974573E+00     8.000000E+00           
+         26  phase0.indep_controls.controls:alpha_25      c    -8.000000E+00     2.778733E+00     8.000000E+00           
+         27  phase0.indep_controls.controls:alpha_26      c    -8.000000E+00     3.639182E+00     8.000000E+00           
+         28  phase0.indep_controls.controls:alpha_27      c    -8.000000E+00     3.923835E+00     8.000000E+00           
+         29  phase0.indep_controls.controls:alpha_28      c    -8.000000E+00     3.000606E+00     8.000000E+00           
+         30  phase0.indep_controls.controls:alpha_29      c    -8.000000E+00    -2.442811E-01     8.000000E+00           
+         31  phase0.indep_controls.controls:alpha_30      c    -8.000000E+00    -6.924604E+00     8.000000E+00           
          32  phase0.indep_states.states:m_0               c     1.000000E-02     1.884212E+01     1.000000E+02           
          33  phase0.indep_states.states:m_1               c     1.000000E-02     1.863936E+01     1.000000E+02           
          34  phase0.indep_states.states:m_2               c     1.000000E-02     1.847831E+01     1.000000E+02           
          35  phase0.indep_states.states:m_3               c     1.000000E-02     1.835947E+01     1.000000E+02           
          36  phase0.indep_states.states:m_4               c     1.000000E-02     1.825658E+01     1.000000E+02           
          37  phase0.indep_states.states:m_5               c     1.000000E-02     1.812130E+01     1.000000E+02           
-         38  phase0.indep_states.states:m_6               c     1.000000E-02     1.795169E+01     1.000000E+02           
+         38  phase0.indep_states.states:m_6               c     1.000000E-02     1.795170E+01     1.000000E+02           
          39  phase0.indep_states.states:m_7               c     1.000000E-02     1.777764E+01     1.000000E+02           
          40  phase0.indep_states.states:m_8               c     1.000000E-02     1.760547E+01     1.000000E+02           
-         41  phase0.indep_states.states:m_9               c     1.000000E-02     1.743413E+01     1.000000E+02           
-         42  phase0.indep_states.states:m_10              c     1.000000E-02     1.726079E+01     1.000000E+02           
-         43  phase0.indep_states.states:m_11              c     1.000000E-02     1.708055E+01     1.000000E+02           
-         44  phase0.indep_states.states:m_12              c     1.000000E-02     1.692212E+01     1.000000E+02           
-         45  phase0.indep_states.states:m_13              c     1.000000E-02     1.684810E+01     1.000000E+02           
-         46  phase0.indep_states.states:m_14              c     1.000000E-02     1.682439E+01     1.000000E+02           
-         47  phase0.indep_states.states:gam_0             c    -1.500000E+00     9.036840E-02     1.500000E+00           
-         48  phase0.indep_states.states:gam_1             c    -1.500000E+00     5.995973E-01     1.500000E+00           
-         49  phase0.indep_states.states:gam_2             c    -1.500000E+00     4.628567E-01     1.500000E+00           
-         50  phase0.indep_states.states:gam_3             c    -1.500000E+00     3.217839E-01     1.500000E+00           
-         51  phase0.indep_states.states:gam_4             c    -1.500000E+00    -1.730961E-01     1.500000E+00           
-         52  phase0.indep_states.states:gam_5             c    -1.500000E+00    -1.199913E-01     1.500000E+00           
-         53  phase0.indep_states.states:gam_6             c    -1.500000E+00     4.828883E-02     1.500000E+00           
-         54  phase0.indep_states.states:gam_7             c    -1.500000E+00     6.289157E-02     1.500000E+00           
-         55  phase0.indep_states.states:gam_8             c    -1.500000E+00     5.550634E-02     1.500000E+00           
-         56  phase0.indep_states.states:gam_9             c    -1.500000E+00     4.434910E-02     1.500000E+00           
-         57  phase0.indep_states.states:gam_10            c    -1.500000E+00     7.497782E-03     1.500000E+00           
-         58  phase0.indep_states.states:gam_11            c    -1.500000E+00     8.646145E-02     1.500000E+00           
-         59  phase0.indep_states.states:gam_12            c    -1.500000E+00     4.777055E-01     1.500000E+00           
-         60  phase0.indep_states.states:gam_13            c    -1.500000E+00     6.312495E-01     1.500000E+00           
-         61  phase0.indep_states.states:gam_14            c    -1.500000E+00     3.860983E-20     1.500000E+00           
-         62  phase0.indep_states.states:v_0               c     1.000000E-01     2.624207E+00    1.797693E+306           
-         63  phase0.indep_states.states:v_1               c     1.000000E-01     3.107852E+00    1.797693E+306           
-         64  phase0.indep_states.states:v_2               c     1.000000E-01     2.951346E+00    1.797693E+306           
-         65  phase0.indep_states.states:v_3               c     1.000000E-01     2.847802E+00    1.797693E+306           
-         66  phase0.indep_states.states:v_4               c     1.000000E-01     3.248495E+00    1.797693E+306           
-         67  phase0.indep_states.states:v_5               c     1.000000E-01     3.933175E+00    1.797693E+306           
-         68  phase0.indep_states.states:v_6               c     1.000000E-01     4.236480E+00    1.797693E+306           
-         69  phase0.indep_states.states:v_7               c     1.000000E-01     4.385851E+00    1.797693E+306           
-         70  phase0.indep_states.states:v_8               c     1.000000E-01     4.552639E+00    1.797693E+306           
-         71  phase0.indep_states.states:v_9               c     1.000000E-01     4.736285E+00    1.797693E+306           
-         72  phase0.indep_states.states:v_10              c     1.000000E-01     4.981216E+00    1.797693E+306           
-         73  phase0.indep_states.states:v_11              c     1.000000E-01     5.199180E+00    1.797693E+306           
-         74  phase0.indep_states.states:v_12              c     1.000000E-01     4.809239E+00    1.797693E+306           
-         75  phase0.indep_states.states:v_13              c     1.000000E-01     3.695551E+00    1.797693E+306           
+         41  phase0.indep_states.states:m_9               c     1.000000E-02     1.743412E+01     1.000000E+02           
+         42  phase0.indep_states.states:m_10              c     1.000000E-02     1.726078E+01     1.000000E+02           
+         43  phase0.indep_states.states:m_11              c     1.000000E-02     1.708053E+01     1.000000E+02           
+         44  phase0.indep_states.states:m_12              c     1.000000E-02     1.692210E+01     1.000000E+02           
+         45  phase0.indep_states.states:m_13              c     1.000000E-02     1.684808E+01     1.000000E+02           
+         46  phase0.indep_states.states:m_14              c     1.000000E-02     1.682437E+01     1.000000E+02           
+         47  phase0.indep_states.states:gam_0             c    -1.500000E+00     9.037620E-02     1.500000E+00           
+         48  phase0.indep_states.states:gam_1             c    -1.500000E+00     5.995915E-01     1.500000E+00           
+         49  phase0.indep_states.states:gam_2             c    -1.500000E+00     4.628573E-01     1.500000E+00           
+         50  phase0.indep_states.states:gam_3             c    -1.500000E+00     3.218006E-01     1.500000E+00           
+         51  phase0.indep_states.states:gam_4             c    -1.500000E+00    -1.731042E-01     1.500000E+00           
+         52  phase0.indep_states.states:gam_5             c    -1.500000E+00    -1.199967E-01     1.500000E+00           
+         53  phase0.indep_states.states:gam_6             c    -1.500000E+00     4.827573E-02     1.500000E+00           
+         54  phase0.indep_states.states:gam_7             c    -1.500000E+00     6.289356E-02     1.500000E+00           
+         55  phase0.indep_states.states:gam_8             c    -1.500000E+00     5.547019E-02     1.500000E+00           
+         56  phase0.indep_states.states:gam_9             c    -1.500000E+00     4.438481E-02     1.500000E+00           
+         57  phase0.indep_states.states:gam_10            c    -1.500000E+00     7.488698E-03     1.500000E+00           
+         58  phase0.indep_states.states:gam_11            c    -1.500000E+00     8.646874E-02     1.500000E+00           
+         59  phase0.indep_states.states:gam_12            c    -1.500000E+00     4.777093E-01     1.500000E+00           
+         60  phase0.indep_states.states:gam_13            c    -1.500000E+00     6.312756E-01     1.500000E+00           
+         61  phase0.indep_states.states:gam_14            c    -1.500000E+00    -1.536960E-19     1.500000E+00           
+         62  phase0.indep_states.states:v_0               c     1.000000E-01     2.624201E+00    1.797693E+306           
+         63  phase0.indep_states.states:v_1               c     1.000000E-01     3.107846E+00    1.797693E+306           
+         64  phase0.indep_states.states:v_2               c     1.000000E-01     2.951350E+00    1.797693E+306           
+         65  phase0.indep_states.states:v_3               c     1.000000E-01     2.847782E+00    1.797693E+306           
+         66  phase0.indep_states.states:v_4               c     1.000000E-01     3.248478E+00    1.797693E+306           
+         67  phase0.indep_states.states:v_5               c     1.000000E-01     3.933171E+00    1.797693E+306           
+         68  phase0.indep_states.states:v_6               c     1.000000E-01     4.236500E+00    1.797693E+306           
+         69  phase0.indep_states.states:v_7               c     1.000000E-01     4.385870E+00    1.797693E+306           
+         70  phase0.indep_states.states:v_8               c     1.000000E-01     4.552708E+00    1.797693E+306           
+         71  phase0.indep_states.states:v_9               c     1.000000E-01     4.736335E+00    1.797693E+306           
+         72  phase0.indep_states.states:v_10              c     1.000000E-01     4.981236E+00    1.797693E+306           
+         73  phase0.indep_states.states:v_11              c     1.000000E-01     5.199198E+00    1.797693E+306           
+         74  phase0.indep_states.states:v_12              c     1.000000E-01     4.809260E+00    1.797693E+306           
+         75  phase0.indep_states.states:v_13              c     1.000000E-01     3.695518E+00    1.797693E+306           
          76  phase0.indep_states.states:v_14              c     1.000000E-01     2.950423E+00    1.797693E+306           
-         77  phase0.indep_states.states:h_0               c     0.000000E+00     2.267338E-01     2.000000E+01           
-         78  phase0.indep_states.states:h_1               c     0.000000E+00     2.432202E+00     2.000000E+01           
-         79  phase0.indep_states.states:h_2               c     0.000000E+00     5.882457E+00     2.000000E+01           
-         80  phase0.indep_states.states:h_3               c     0.000000E+00     8.367943E+00     2.000000E+01           
-         81  phase0.indep_states.states:h_4               c     0.000000E+00     8.758684E+00     2.000000E+01           
-         82  phase0.indep_states.states:h_5               c     0.000000E+00     7.291264E+00     2.000000E+01           
-         83  phase0.indep_states.states:h_6               c     0.000000E+00     7.105348E+00     2.000000E+01           
-         84  phase0.indep_states.states:h_7               c     0.000000E+00     7.689355E+00     2.000000E+01           
-         85  phase0.indep_states.states:h_8               c     0.000000E+00     8.246071E+00     2.000000E+01           
-         86  phase0.indep_states.states:h_9               c     0.000000E+00     8.763086E+00     2.000000E+01           
-         87  phase0.indep_states.states:h_10              c     0.000000E+00     9.029668E+00     2.000000E+01           
-         88  phase0.indep_states.states:h_11              c     0.000000E+00     9.289334E+00     2.000000E+01           
-         89  phase0.indep_states.states:h_12              c     0.000000E+00     1.212723E+01     2.000000E+01           
-         90  phase0.indep_states.states:h_13              c     0.000000E+00     1.729647E+01     2.000000E+01           
+         77  phase0.indep_states.states:h_0               c     0.000000E+00     2.267445E-01     2.000000E+01           
+         78  phase0.indep_states.states:h_1               c     0.000000E+00     2.432223E+00     2.000000E+01           
+         79  phase0.indep_states.states:h_2               c     0.000000E+00     5.882447E+00     2.000000E+01           
+         80  phase0.indep_states.states:h_3               c     0.000000E+00     8.367994E+00     2.000000E+01           
+         81  phase0.indep_states.states:h_4               c     0.000000E+00     8.758756E+00     2.000000E+01           
+         82  phase0.indep_states.states:h_5               c     0.000000E+00     7.291285E+00     2.000000E+01           
+         83  phase0.indep_states.states:h_6               c     0.000000E+00     7.105273E+00     2.000000E+01           
+         84  phase0.indep_states.states:h_7               c     0.000000E+00     7.689268E+00     2.000000E+01           
+         85  phase0.indep_states.states:h_8               c     0.000000E+00     8.245776E+00     2.000000E+01           
+         86  phase0.indep_states.states:h_9               c     0.000000E+00     8.762810E+00     2.000000E+01           
+         87  phase0.indep_states.states:h_10              c     0.000000E+00     9.029566E+00     2.000000E+01           
+         88  phase0.indep_states.states:h_11              c     0.000000E+00     9.289205E+00     2.000000E+01           
+         89  phase0.indep_states.states:h_12              c     0.000000E+00     1.212712E+01     2.000000E+01           
+         90  phase0.indep_states.states:h_13              c     0.000000E+00     1.729654E+01     2.000000E+01           
          91  phase0.indep_states.states:h_14              c     0.000000E+00     2.000000E+01     2.000000E+01          u
-         92  phase0.indep_states.states:r_0               c     0.000000E+00     4.267562E+00     1.000000E+03           
-         93  phase0.indep_states.states:r_1               c     0.000000E+00     1.017243E+01     1.000000E+03           
+         92  phase0.indep_states.states:r_0               c     0.000000E+00     4.267559E+00     1.000000E+03           
+         93  phase0.indep_states.states:r_1               c     0.000000E+00     1.017241E+01     1.000000E+03           
          94  phase0.indep_states.states:r_2               c     0.000000E+00     1.564526E+01     1.000000E+03           
-         95  phase0.indep_states.states:r_3               c     0.000000E+00     2.130679E+01     1.000000E+03           
-         96  phase0.indep_states.states:r_4               c     0.000000E+00     2.762639E+01     1.000000E+03           
-         97  phase0.indep_states.states:r_5               c     0.000000E+00     3.520608E+01     1.000000E+03           
-         98  phase0.indep_states.states:r_6               c     0.000000E+00     4.399630E+01     1.000000E+03           
-         99  phase0.indep_states.states:r_7               c     0.000000E+00     5.320810E+01     1.000000E+03           
-        100  phase0.indep_states.states:r_8               c     0.000000E+00     6.275560E+01     1.000000E+03           
-        101  phase0.indep_states.states:r_9               c     0.000000E+00     7.267830E+01     1.000000E+03           
-        102  phase0.indep_states.states:r_10              c     0.000000E+00     8.306129E+01     1.000000E+03           
-        103  phase0.indep_states.states:r_11              c     0.000000E+00     9.399274E+01     1.000000E+03           
-        104  phase0.indep_states.states:r_12              c     0.000000E+00     1.044189E+02     1.000000E+03           
-        105  phase0.indep_states.states:r_13              c     0.000000E+00     1.119523E+02     1.000000E+03           
-        106  phase0.indep_states.states:r_14              c     0.000000E+00     1.181904E+02     1.000000E+03           
+         95  phase0.indep_states.states:r_3               c     0.000000E+00     2.130675E+01     1.000000E+03           
+         96  phase0.indep_states.states:r_4               c     0.000000E+00     2.762629E+01     1.000000E+03           
+         97  phase0.indep_states.states:r_5               c     0.000000E+00     3.520595E+01     1.000000E+03           
+         98  phase0.indep_states.states:r_6               c     0.000000E+00     4.399618E+01     1.000000E+03           
+         99  phase0.indep_states.states:r_7               c     0.000000E+00     5.320803E+01     1.000000E+03           
+        100  phase0.indep_states.states:r_8               c     0.000000E+00     6.275563E+01     1.000000E+03           
+        101  phase0.indep_states.states:r_9               c     0.000000E+00     7.267848E+01     1.000000E+03           
+        102  phase0.indep_states.states:r_10              c     0.000000E+00     8.306152E+01     1.000000E+03           
+        103  phase0.indep_states.states:r_11              c     0.000000E+00     9.399301E+01     1.000000E+03           
+        104  phase0.indep_states.states:r_12              c     0.000000E+00     1.044193E+02     1.000000E+03           
+        105  phase0.indep_states.states:r_13              c     0.000000E+00     1.119525E+02     1.000000E+03           
+        106  phase0.indep_states.states:r_14              c     0.000000E+00     1.181905E+02     1.000000E+03           
 
    Constraints (i - inequality, e - equality)
-      Index  Name                                                         Type          Lower           Value           Upper    Status
-          0  phase0.collocation_constraint.defects:m                         e   0.000000E+00   -2.048018E-12    0.000000E+00          
-          1  phase0.collocation_constraint.defects:m                         e   0.000000E+00   -4.871005E-12    0.000000E+00          
-          2  phase0.collocation_constraint.defects:m                         e   0.000000E+00   -8.372192E-12    0.000000E+00          
-          3  phase0.collocation_constraint.defects:m                         e   0.000000E+00    4.492380E-11    0.000000E+00          
-          4  phase0.collocation_constraint.defects:m                         e   0.000000E+00   -9.686363E-13    0.000000E+00          
-          5  phase0.collocation_constraint.defects:m                         e   0.000000E+00    7.148166E-12    0.000000E+00          
-          6  phase0.collocation_constraint.defects:m                         e   0.000000E+00   -1.738977E-12    0.000000E+00          
-          7  phase0.collocation_constraint.defects:m                         e   0.000000E+00   -2.291562E-12    0.000000E+00          
-          8  phase0.collocation_constraint.defects:m                         e   0.000000E+00   -1.974517E-12    0.000000E+00          
-          9  phase0.collocation_constraint.defects:m                         e   0.000000E+00    5.342391E-14    0.000000E+00          
-         10  phase0.collocation_constraint.defects:m                         e   0.000000E+00   -6.516386E-13    0.000000E+00          
-         11  phase0.collocation_constraint.defects:m                         e   0.000000E+00   -1.041747E-12    0.000000E+00          
-         12  phase0.collocation_constraint.defects:m                         e   0.000000E+00    1.232980E-12    0.000000E+00          
-         13  phase0.collocation_constraint.defects:m                         e   0.000000E+00    1.124967E-11    0.000000E+00          
-         14  phase0.collocation_constraint.defects:m                         e   0.000000E+00    3.172292E-12    0.000000E+00          
-         15  phase0.collocation_constraint.defects:gam                       e   0.000000E+00   -5.153802E-12    0.000000E+00          
-         16  phase0.collocation_constraint.defects:gam                       e   0.000000E+00   -1.150484E-09    0.000000E+00          
-         17  phase0.collocation_constraint.defects:gam                       e   0.000000E+00   -3.849970E-09    0.000000E+00          
-         18  phase0.collocation_constraint.defects:gam                       e   0.000000E+00   -6.192679E-09    0.000000E+00          
-         19  phase0.collocation_constraint.defects:gam                       e   0.000000E+00    1.749054E-10    0.000000E+00          
-         20  phase0.collocation_constraint.defects:gam                       e   0.000000E+00   -9.482224E-11    0.000000E+00          
-         21  phase0.collocation_constraint.defects:gam                       e   0.000000E+00   -3.173872E-10    0.000000E+00          
-         22  phase0.collocation_constraint.defects:gam                       e   0.000000E+00    2.475430E-10    0.000000E+00          
-         23  phase0.collocation_constraint.defects:gam                       e   0.000000E+00   -6.093876E-10    0.000000E+00          
-         24  phase0.collocation_constraint.defects:gam                       e   0.000000E+00   -2.828925E-10    0.000000E+00          
-         25  phase0.collocation_constraint.defects:gam                       e   0.000000E+00   -3.212837E-11    0.000000E+00          
-         26  phase0.collocation_constraint.defects:gam                       e   0.000000E+00   -1.144695E-10    0.000000E+00          
-         27  phase0.collocation_constraint.defects:gam                       e   0.000000E+00   -1.176011E-10    0.000000E+00          
-         28  phase0.collocation_constraint.defects:gam                       e   0.000000E+00    6.202063E-11    0.000000E+00          
-         29  phase0.collocation_constraint.defects:gam                       e   0.000000E+00   -6.864526E-11    0.000000E+00          
-         30  phase0.collocation_constraint.defects:v                         e   0.000000E+00    9.582367E-11    0.000000E+00          
-         31  phase0.collocation_constraint.defects:v                         e   0.000000E+00    5.003702E-10    0.000000E+00          
-         32  phase0.collocation_constraint.defects:v                         e   0.000000E+00    2.512402E-09    0.000000E+00          
-         33  phase0.collocation_constraint.defects:v                         e   0.000000E+00    4.328553E-09    0.000000E+00          
-         34  phase0.collocation_constraint.defects:v                         e   0.000000E+00    1.061824E-09    0.000000E+00          
-         35  phase0.collocation_constraint.defects:v                         e   0.000000E+00    1.979646E-10    0.000000E+00          
-         36  phase0.collocation_constraint.defects:v                         e   0.000000E+00    6.179576E-10    0.000000E+00          
-         37  phase0.collocation_constraint.defects:v                         e   0.000000E+00    2.544904E-10    0.000000E+00          
-         38  phase0.collocation_constraint.defects:v                         e   0.000000E+00    5.985051E-10    0.000000E+00          
-         39  phase0.collocation_constraint.defects:v                         e   0.000000E+00    4.756891E-10    0.000000E+00          
-         40  phase0.collocation_constraint.defects:v                         e   0.000000E+00    2.125596E-10    0.000000E+00          
-         41  phase0.collocation_constraint.defects:v                         e   0.000000E+00    2.325711E-10    0.000000E+00          
-         42  phase0.collocation_constraint.defects:v                         e   0.000000E+00    1.483692E-10    0.000000E+00          
-         43  phase0.collocation_constraint.defects:v                         e   0.000000E+00   -4.085845E-11    0.000000E+00          
-         44  phase0.collocation_constraint.defects:v                         e   0.000000E+00    4.580931E-10    0.000000E+00          
-         45  phase0.collocation_constraint.defects:h                         e   0.000000E+00    1.973663E-10    0.000000E+00          
-         46  phase0.collocation_constraint.defects:h                         e   0.000000E+00    2.523183E-09    0.000000E+00          
-         47  phase0.collocation_constraint.defects:h                         e   0.000000E+00    1.489431E-09    0.000000E+00          
-         48  phase0.collocation_constraint.defects:h                         e   0.000000E+00    2.939601E-09    0.000000E+00          
-         49  phase0.collocation_constraint.defects:h                         e   0.000000E+00   -1.464141E-09    0.000000E+00          
-         50  phase0.collocation_constraint.defects:h                         e   0.000000E+00    8.806205E-10    0.000000E+00          
-         51  phase0.collocation_constraint.defects:h                         e   0.000000E+00   -1.032455E-09    0.000000E+00          
-         52  phase0.collocation_constraint.defects:h                         e   0.000000E+00    4.082320E-10    0.000000E+00          
-         53  phase0.collocation_constraint.defects:h                         e   0.000000E+00   -2.758613E-11    0.000000E+00          
-         54  phase0.collocation_constraint.defects:h                         e   0.000000E+00    1.198877E-10    0.000000E+00          
-         55  phase0.collocation_constraint.defects:h                         e   0.000000E+00   -7.702185E-11    0.000000E+00          
-         56  phase0.collocation_constraint.defects:h                         e   0.000000E+00    7.141551E-11    0.000000E+00          
-         57  phase0.collocation_constraint.defects:h                         e   0.000000E+00    2.863269E-10    0.000000E+00          
-         58  phase0.collocation_constraint.defects:h                         e   0.000000E+00    1.047398E-10    0.000000E+00          
-         59  phase0.collocation_constraint.defects:h                         e   0.000000E+00   -4.083135E-10    0.000000E+00          
-         60  phase0.collocation_constraint.defects:r                         e   0.000000E+00    2.645634E-09    0.000000E+00          
-         61  phase0.collocation_constraint.defects:r                         e   0.000000E+00    1.035667E-08    0.000000E+00          
-         62  phase0.collocation_constraint.defects:r                         e   0.000000E+00    3.757968E-08    0.000000E+00          
-         63  phase0.collocation_constraint.defects:r                         e   0.000000E+00    1.789790E-08    0.000000E+00          
-         64  phase0.collocation_constraint.defects:r                         e   0.000000E+00    1.732025E-08    0.000000E+00          
-         65  phase0.collocation_constraint.defects:r                         e   0.000000E+00    1.556476E-08    0.000000E+00          
-         66  phase0.collocation_constraint.defects:r                         e   0.000000E+00    8.030028E-09    0.000000E+00          
-         67  phase0.collocation_constraint.defects:r                         e   0.000000E+00    4.414723E-09    0.000000E+00          
-         68  phase0.collocation_constraint.defects:r                         e   0.000000E+00    9.226717E-09    0.000000E+00          
-         69  phase0.collocation_constraint.defects:r                         e   0.000000E+00    8.978794E-09    0.000000E+00          
-         70  phase0.collocation_constraint.defects:r                         e   0.000000E+00    2.683518E-09    0.000000E+00          
-         71  phase0.collocation_constraint.defects:r                         e   0.000000E+00    2.927694E-09    0.000000E+00          
-         72  phase0.collocation_constraint.defects:r                         e   0.000000E+00    5.065587E-09    0.000000E+00          
-         73  phase0.collocation_constraint.defects:r                         e   0.000000E+00   -9.841984E-10    0.000000E+00          
-         74  phase0.collocation_constraint.defects:r                         e   0.000000E+00    6.217645E-10    0.000000E+00          
-         75  phase0.continuity_constraint.defect_control_rates:alpha_rate    e   0.000000E+00   -1.336786E-12    0.000000E+00          
-         76  phase0.continuity_constraint.defect_control_rates:alpha_rate    e   0.000000E+00   -1.113988E-12    0.000000E+00          
-         77  phase0.continuity_constraint.defect_control_rates:alpha_rate    e   0.000000E+00    6.683930E-13    0.000000E+00          
-         78  phase0.continuity_constraint.defect_control_rates:alpha_rate    e   0.000000E+00    0.000000E+00    0.000000E+00          
-         79  phase0.continuity_constraint.defect_control_rates:alpha_rate    e   0.000000E+00    1.113988E-12    0.000000E+00          
-         80  phase0.continuity_constraint.defect_control_rates:alpha_rate    e   0.000000E+00   -2.450774E-12    0.000000E+00          
-         81  phase0.continuity_constraint.defect_control_rates:alpha_rate    e   0.000000E+00    6.683930E-13    0.000000E+00          
-         82  phase0.continuity_constraint.defect_control_rates:alpha_rate    e   0.000000E+00    0.000000E+00    0.000000E+00          
-         83  phase0.continuity_constraint.defect_control_rates:alpha_rate    e   0.000000E+00    0.000000E+00    0.000000E+00          
-         84  phase0.continuity_constraint.defect_control_rates:alpha_rate    e   0.000000E+00    0.000000E+00    0.000000E+00          
-         85  phase0.continuity_constraint.defect_control_rates:alpha_rate    e   0.000000E+00    5.639566E-13    0.000000E+00          
-         86  phase0.continuity_constraint.defect_control_rates:alpha_rate    e   0.000000E+00    4.455953E-13    0.000000E+00          
-         87  phase0.continuity_constraint.defect_control_rates:alpha_rate    e   0.000000E+00   -2.450774E-12    0.000000E+00          
-         88  phase0.continuity_constraint.defect_control_rates:alpha_rate    e   0.000000E+00    2.227977E-12    0.000000E+00          
-         89  phase0.boundary_constraints.final_value:h                       e   2.000000E+01    2.000000E+01    2.000000E+01          
-         90  phase0.boundary_constraints.final_value:mach                    e   1.000000E+00    1.000000E+00    1.000000E+00          
-         91  phase0.boundary_constraints.final_value:gam                     e   0.000000E+00    3.860983E-20    0.000000E+00          
-         92  phase0.path_constraints.path:h                                  i   5.000000E-03    5.000000E-03    1.000000E+00         l
-         93  phase0.path_constraints.path:h                                  i   5.000000E-03    5.000000E-03    1.000000E+00         l
-         94  phase0.path_constraints.path:h                                  i   5.000000E-03    1.133669E-02    1.000000E+00          
-         95  phase0.path_constraints.path:h                                  i   5.000000E-03    1.133669E-02    1.000000E+00          
-         96  phase0.path_constraints.path:h                                  i   5.000000E-03    4.617853E-02    1.000000E+00          
-         97  phase0.path_constraints.path:h                                  i   5.000000E-03    1.216101E-01    1.000000E+00          
-         98  phase0.path_constraints.path:h                                  i   5.000000E-03    1.216101E-01    1.000000E+00          
-         99  phase0.path_constraints.path:h                                  i   5.000000E-03    2.136995E-01    1.000000E+00          
-        100  phase0.path_constraints.path:h                                  i   5.000000E-03    2.941229E-01    1.000000E+00          
-        101  phase0.path_constraints.path:h                                  i   5.000000E-03    2.941229E-01    1.000000E+00          
-        102  phase0.path_constraints.path:h                                  i   5.000000E-03    3.618409E-01    1.000000E+00          
-        103  phase0.path_constraints.path:h                                  i   5.000000E-03    4.183971E-01    1.000000E+00          
-        104  phase0.path_constraints.path:h                                  i   5.000000E-03    4.183971E-01    1.000000E+00          
-        105  phase0.path_constraints.path:h                                  i   5.000000E-03    4.477003E-01    1.000000E+00          
-        106  phase0.path_constraints.path:h                                  i   5.000000E-03    4.379342E-01    1.000000E+00          
-        107  phase0.path_constraints.path:h                                  i   5.000000E-03    4.379342E-01    1.000000E+00          
-        108  phase0.path_constraints.path:h                                  i   5.000000E-03    4.000623E-01    1.000000E+00          
-        109  phase0.path_constraints.path:h                                  i   5.000000E-03    3.645632E-01    1.000000E+00          
-        110  phase0.path_constraints.path:h                                  i   5.000000E-03    3.645632E-01    1.000000E+00          
-        111  phase0.path_constraints.path:h                                  i   5.000000E-03    3.508806E-01    1.000000E+00          
-        112  phase0.path_constraints.path:h                                  i   5.000000E-03    3.552674E-01    1.000000E+00          
-        113  phase0.path_constraints.path:h                                  i   5.000000E-03    3.552674E-01    1.000000E+00          
-        114  phase0.path_constraints.path:h                                  i   5.000000E-03    3.689156E-01    1.000000E+00          
-        115  phase0.path_constraints.path:h                                  i   5.000000E-03    3.844677E-01    1.000000E+00          
-        116  phase0.path_constraints.path:h                                  i   5.000000E-03    3.844677E-01    1.000000E+00          
-        117  phase0.path_constraints.path:h                                  i   5.000000E-03    3.986944E-01    1.000000E+00          
-        118  phase0.path_constraints.path:h                                  i   5.000000E-03    4.123036E-01    1.000000E+00          
-        119  phase0.path_constraints.path:h                                  i   5.000000E-03    4.123036E-01    1.000000E+00          
-        120  phase0.path_constraints.path:h                                  i   5.000000E-03    4.257987E-01    1.000000E+00          
-        121  phase0.path_constraints.path:h                                  i   5.000000E-03    4.381543E-01    1.000000E+00          
-        122  phase0.path_constraints.path:h                                  i   5.000000E-03    4.381543E-01    1.000000E+00          
-        123  phase0.path_constraints.path:h                                  i   5.000000E-03    4.471284E-01    1.000000E+00          
-        124  phase0.path_constraints.path:h                                  i   5.000000E-03    4.514834E-01    1.000000E+00          
-        125  phase0.path_constraints.path:h                                  i   5.000000E-03    4.514834E-01    1.000000E+00          
-        126  phase0.path_constraints.path:h                                  i   5.000000E-03    4.524681E-01    1.000000E+00          
-        127  phase0.path_constraints.path:h                                  i   5.000000E-03    4.644667E-01    1.000000E+00          
-        128  phase0.path_constraints.path:h                                  i   5.000000E-03    4.644667E-01    1.000000E+00          
-        129  phase0.path_constraints.path:h                                  i   5.000000E-03    5.118405E-01    1.000000E+00          
-        130  phase0.path_constraints.path:h                                  i   5.000000E-03    6.063615E-01    1.000000E+00          
-        131  phase0.path_constraints.path:h                                  i   5.000000E-03    6.063615E-01    1.000000E+00          
-        132  phase0.path_constraints.path:h                                  i   5.000000E-03    7.359947E-01    1.000000E+00          
-        133  phase0.path_constraints.path:h                                  i   5.000000E-03    8.648234E-01    1.000000E+00          
-        134  phase0.path_constraints.path:h                                  i   5.000000E-03    8.648234E-01    1.000000E+00          
-        135  phase0.path_constraints.path:h                                  i   5.000000E-03    9.615896E-01    1.000000E+00          
-        136  phase0.path_constraints.path:h                                  i   5.000000E-03    1.000000E+00    1.000000E+00         u
-        137  phase0.path_constraints.path:mach                               i   1.000000E-01    4.000299E-01    1.800000E+00          
-        138  phase0.path_constraints.path:mach                               i   1.000000E-01    5.876766E-01    1.800000E+00          
-        139  phase0.path_constraints.path:mach                               i   1.000000E-01    7.731961E-01    1.800000E+00          
-        140  phase0.path_constraints.path:mach                               i   1.000000E-01    7.731961E-01    1.800000E+00          
-        141  phase0.path_constraints.path:mach                               i   1.000000E-01    8.998868E-01    1.800000E+00          
-        142  phase0.path_constraints.path:mach                               i   1.000000E-01    9.394878E-01    1.800000E+00          
-        143  phase0.path_constraints.path:mach                               i   1.000000E-01    9.394878E-01    1.800000E+00          
-        144  phase0.path_constraints.path:mach                               i   1.000000E-01    9.347037E-01    1.800000E+00          
-        145  phase0.path_constraints.path:mach                               i   1.000000E-01    9.313462E-01    1.800000E+00          
-        146  phase0.path_constraints.path:mach                               i   1.000000E-01    9.313462E-01    1.800000E+00          
-        147  phase0.path_constraints.path:mach                               i   1.000000E-01    9.275369E-01    1.800000E+00          
-        148  phase0.path_constraints.path:mach                               i   1.000000E-01    9.292059E-01    1.800000E+00          
-        149  phase0.path_constraints.path:mach                               i   1.000000E-01    9.292059E-01    1.800000E+00          
-        150  phase0.path_constraints.path:mach                               i   1.000000E-01    9.734754E-01    1.800000E+00          
-        151  phase0.path_constraints.path:mach                               i   1.000000E-01    1.065753E+00    1.800000E+00          
-        152  phase0.path_constraints.path:mach                               i   1.000000E-01    1.065753E+00    1.800000E+00          
-        153  phase0.path_constraints.path:mach                               i   1.000000E-01    1.174632E+00    1.800000E+00          
-        154  phase0.path_constraints.path:mach                               i   1.000000E-01    1.264562E+00    1.800000E+00          
-        155  phase0.path_constraints.path:mach                               i   1.000000E-01    1.264562E+00    1.800000E+00          
-        156  phase0.path_constraints.path:mach                               i   1.000000E-01    1.321719E+00    1.800000E+00          
-        157  phase0.path_constraints.path:mach                               i   1.000000E-01    1.358672E+00    1.800000E+00          
-        158  phase0.path_constraints.path:mach                               i   1.000000E-01    1.358672E+00    1.800000E+00          
-        159  phase0.path_constraints.path:mach                               i   1.000000E-01    1.388210E+00    1.800000E+00          
-        160  phase0.path_constraints.path:mach                               i   1.000000E-01    1.417741E+00    1.800000E+00          
-        161  phase0.path_constraints.path:mach                               i   1.000000E-01    1.417741E+00    1.800000E+00          
-        162  phase0.path_constraints.path:mach                               i   1.000000E-01    1.449664E+00    1.800000E+00          
-        163  phase0.path_constraints.path:mach                               i   1.000000E-01    1.482965E+00    1.800000E+00          
-        164  phase0.path_constraints.path:mach                               i   1.000000E-01    1.482965E+00    1.800000E+00          
-        165  phase0.path_constraints.path:mach                               i   1.000000E-01    1.517288E+00    1.800000E+00          
-        166  phase0.path_constraints.path:mach                               i   1.000000E-01    1.553957E+00    1.800000E+00          
-        167  phase0.path_constraints.path:mach                               i   1.000000E-01    1.553957E+00    1.800000E+00          
-        168  phase0.path_constraints.path:mach                               i   1.000000E-01    1.595067E+00    1.800000E+00          
-        169  phase0.path_constraints.path:mach                               i   1.000000E-01    1.640477E+00    1.800000E+00          
-        170  phase0.path_constraints.path:mach                               i   1.000000E-01    1.640477E+00    1.800000E+00          
-        171  phase0.path_constraints.path:mach                               i   1.000000E-01    1.686766E+00    1.800000E+00          
-        172  phase0.path_constraints.path:mach                               i   1.000000E-01    1.718592E+00    1.800000E+00          
-        173  phase0.path_constraints.path:mach                               i   1.000000E-01    1.718592E+00    1.800000E+00          
-        174  phase0.path_constraints.path:mach                               i   1.000000E-01    1.714979E+00    1.800000E+00          
-        175  phase0.path_constraints.path:mach                               i   1.000000E-01    1.630017E+00    1.800000E+00          
-        176  phase0.path_constraints.path:mach                               i   1.000000E-01    1.630017E+00    1.800000E+00          
-        177  phase0.path_constraints.path:mach                               i   1.000000E-01    1.453138E+00    1.800000E+00          
-        178  phase0.path_constraints.path:mach                               i   1.000000E-01    1.252549E+00    1.800000E+00          
-        179  phase0.path_constraints.path:mach                               i   1.000000E-01    1.252549E+00    1.800000E+00          
-        180  phase0.path_constraints.path:mach                               i   1.000000E-01    1.080370E+00    1.800000E+00          
-        181  phase0.path_constraints.path:mach                               i   1.000000E-01    1.000000E+00    1.800000E+00          
-        182  phase0.path_constraints.path:alpha                              i  -8.000000E+00    5.483192E+00    8.000000E+00          
-        183  phase0.path_constraints.path:alpha                              i  -8.000000E+00    2.634339E+00    8.000000E+00          
-        184  phase0.path_constraints.path:alpha                              i  -8.000000E+00    2.031441E+00    8.000000E+00          
-        185  phase0.path_constraints.path:alpha                              i  -8.000000E+00    2.031441E+00    8.000000E+00          
-        186  phase0.path_constraints.path:alpha                              i  -8.000000E+00    2.125775E+00    8.000000E+00          
-        187  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.368619E+00    8.000000E+00          
-        188  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.368619E+00    8.000000E+00          
-        189  phase0.path_constraints.path:alpha                              i  -8.000000E+00    7.670715E-01    8.000000E+00          
-        190  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.328231E+00    8.000000E+00          
-        191  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.328231E+00    8.000000E+00          
-        192  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.851369E+00    8.000000E+00          
-        193  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.135756E+00    8.000000E+00          
-        194  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.135756E+00    8.000000E+00          
-        195  phase0.path_constraints.path:alpha                              i  -8.000000E+00    4.593428E-01    8.000000E+00          
-        196  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.100081E+00    8.000000E+00          
-        197  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.100081E+00    8.000000E+00          
-        198  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.982758E+00    8.000000E+00          
-        199  phase0.path_constraints.path:alpha                              i  -8.000000E+00    2.032160E+00    8.000000E+00          
-        200  phase0.path_constraints.path:alpha                              i  -8.000000E+00    2.032160E+00    8.000000E+00          
-        201  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.695980E+00    8.000000E+00          
-        202  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.421909E+00    8.000000E+00          
-        203  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.421909E+00    8.000000E+00          
-        204  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.247788E+00    8.000000E+00          
-        205  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.211460E+00    8.000000E+00          
-        206  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.211460E+00    8.000000E+00          
-        207  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.239347E+00    8.000000E+00          
-        208  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.257869E+00    8.000000E+00          
-        209  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.257869E+00    8.000000E+00          
-        210  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.249122E+00    8.000000E+00          
-        211  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.195201E+00    8.000000E+00          
-        212  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.195201E+00    8.000000E+00          
-        213  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.147779E+00    8.000000E+00          
-        214  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.158527E+00    8.000000E+00          
-        215  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.158527E+00    8.000000E+00          
-        216  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.382469E+00    8.000000E+00          
-        217  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.974627E+00    8.000000E+00          
-        218  phase0.path_constraints.path:alpha                              i  -8.000000E+00    1.974627E+00    8.000000E+00          
-        219  phase0.path_constraints.path:alpha                              i  -8.000000E+00    2.778851E+00    8.000000E+00          
-        220  phase0.path_constraints.path:alpha                              i  -8.000000E+00    3.638991E+00    8.000000E+00          
-        221  phase0.path_constraints.path:alpha                              i  -8.000000E+00    3.638991E+00    8.000000E+00          
-        222  phase0.path_constraints.path:alpha                              i  -8.000000E+00    3.923657E+00    8.000000E+00          
-        223  phase0.path_constraints.path:alpha                              i  -8.000000E+00    3.001461E+00    8.000000E+00          
-        224  phase0.path_constraints.path:alpha                              i  -8.000000E+00    3.001461E+00    8.000000E+00          
-        225  phase0.path_constraints.path:alpha                              i  -8.000000E+00   -2.435091E-01    8.000000E+00          
-        226  phase0.path_constraints.path:alpha                              i  -8.000000E+00   -6.927164E+00    8.000000E+00          
+      Index  Name                                                   Type          Lower           Value           Upper    Status
+          0  phase0.collocation_constraint.defects:m                   e   0.000000E+00   -5.927962E-14    0.000000E+00          
+          1  phase0.collocation_constraint.defects:m                   e   0.000000E+00   -4.001660E-13    0.000000E+00          
+          2  phase0.collocation_constraint.defects:m                   e   0.000000E+00   -1.063706E-12    0.000000E+00          
+          3  phase0.collocation_constraint.defects:m                   e   0.000000E+00    1.740089E-12    0.000000E+00          
+          4  phase0.collocation_constraint.defects:m                   e   0.000000E+00    8.536465E-12    0.000000E+00          
+          5  phase0.collocation_constraint.defects:m                   e   0.000000E+00    2.914984E-11    0.000000E+00          
+          6  phase0.collocation_constraint.defects:m                   e   0.000000E+00   -2.193983E-12    0.000000E+00          
+          7  phase0.collocation_constraint.defects:m                   e   0.000000E+00   -9.856616E-13    0.000000E+00          
+          8  phase0.collocation_constraint.defects:m                   e   0.000000E+00   -6.955374E-13    0.000000E+00          
+          9  phase0.collocation_constraint.defects:m                   e   0.000000E+00   -2.922402E-12    0.000000E+00          
+         10  phase0.collocation_constraint.defects:m                   e   0.000000E+00   -1.058478E-12    0.000000E+00          
+         11  phase0.collocation_constraint.defects:m                   e   0.000000E+00   -6.511804E-12    0.000000E+00          
+         12  phase0.collocation_constraint.defects:m                   e   0.000000E+00    1.714518E-12    0.000000E+00          
+         13  phase0.collocation_constraint.defects:m                   e   0.000000E+00    4.756125E-12    0.000000E+00          
+         14  phase0.collocation_constraint.defects:m                   e   0.000000E+00    8.855607E-12    0.000000E+00          
+         15  phase0.collocation_constraint.defects:gam                 e   0.000000E+00    1.382060E-12    0.000000E+00          
+         16  phase0.collocation_constraint.defects:gam                 e   0.000000E+00   -1.032705E-10    0.000000E+00          
+         17  phase0.collocation_constraint.defects:gam                 e   0.000000E+00   -3.770917E-11    0.000000E+00          
+         18  phase0.collocation_constraint.defects:gam                 e   0.000000E+00   -4.699420E-11    0.000000E+00          
+         19  phase0.collocation_constraint.defects:gam                 e   0.000000E+00    3.844000E-10    0.000000E+00          
+         20  phase0.collocation_constraint.defects:gam                 e   0.000000E+00   -3.396757E-10    0.000000E+00          
+         21  phase0.collocation_constraint.defects:gam                 e   0.000000E+00    9.205795E-11    0.000000E+00          
+         22  phase0.collocation_constraint.defects:gam                 e   0.000000E+00    8.625045E-11    0.000000E+00          
+         23  phase0.collocation_constraint.defects:gam                 e   0.000000E+00   -1.278804E-10    0.000000E+00          
+         24  phase0.collocation_constraint.defects:gam                 e   0.000000E+00   -1.369730E-10    0.000000E+00          
+         25  phase0.collocation_constraint.defects:gam                 e   0.000000E+00   -1.787898E-10    0.000000E+00          
+         26  phase0.collocation_constraint.defects:gam                 e   0.000000E+00   -2.941409E-10    0.000000E+00          
+         27  phase0.collocation_constraint.defects:gam                 e   0.000000E+00   -5.717293E-10    0.000000E+00          
+         28  phase0.collocation_constraint.defects:gam                 e   0.000000E+00   -4.246245E-10    0.000000E+00          
+         29  phase0.collocation_constraint.defects:gam                 e   0.000000E+00   -2.570108E-10    0.000000E+00          
+         30  phase0.collocation_constraint.defects:v                   e   0.000000E+00    3.226538E-12    0.000000E+00          
+         31  phase0.collocation_constraint.defects:v                   e   0.000000E+00    1.444979E-10    0.000000E+00          
+         32  phase0.collocation_constraint.defects:v                   e   0.000000E+00    8.265630E-11    0.000000E+00          
+         33  phase0.collocation_constraint.defects:v                   e   0.000000E+00    1.249605E-10    0.000000E+00          
+         34  phase0.collocation_constraint.defects:v                   e   0.000000E+00    2.147025E-10    0.000000E+00          
+         35  phase0.collocation_constraint.defects:v                   e   0.000000E+00    2.718958E-10    0.000000E+00          
+         36  phase0.collocation_constraint.defects:v                   e   0.000000E+00    2.056953E-10    0.000000E+00          
+         37  phase0.collocation_constraint.defects:v                   e   0.000000E+00    7.058789E-11    0.000000E+00          
+         38  phase0.collocation_constraint.defects:v                   e   0.000000E+00    1.880160E-10    0.000000E+00          
+         39  phase0.collocation_constraint.defects:v                   e   0.000000E+00    1.631285E-10    0.000000E+00          
+         40  phase0.collocation_constraint.defects:v                   e   0.000000E+00    1.730410E-10    0.000000E+00          
+         41  phase0.collocation_constraint.defects:v                   e   0.000000E+00    3.920251E-10    0.000000E+00          
+         42  phase0.collocation_constraint.defects:v                   e   0.000000E+00    5.902539E-10    0.000000E+00          
+         43  phase0.collocation_constraint.defects:v                   e   0.000000E+00    1.769420E-10    0.000000E+00          
+         44  phase0.collocation_constraint.defects:v                   e   0.000000E+00    2.544715E-09    0.000000E+00          
+         45  phase0.collocation_constraint.defects:h                   e   0.000000E+00    3.441502E-12    0.000000E+00          
+         46  phase0.collocation_constraint.defects:h                   e   0.000000E+00    1.256909E-10    0.000000E+00          
+         47  phase0.collocation_constraint.defects:h                   e   0.000000E+00   -9.875628E-12    0.000000E+00          
+         48  phase0.collocation_constraint.defects:h                   e   0.000000E+00    1.474022E-10    0.000000E+00          
+         49  phase0.collocation_constraint.defects:h                   e   0.000000E+00    9.983643E-10    0.000000E+00          
+         50  phase0.collocation_constraint.defects:h                   e   0.000000E+00   -1.424141E-11    0.000000E+00          
+         51  phase0.collocation_constraint.defects:h                   e   0.000000E+00   -7.802952E-10    0.000000E+00          
+         52  phase0.collocation_constraint.defects:h                   e   0.000000E+00    1.326314E-10    0.000000E+00          
+         53  phase0.collocation_constraint.defects:h                   e   0.000000E+00    5.269860E-10    0.000000E+00          
+         54  phase0.collocation_constraint.defects:h                   e   0.000000E+00   -3.381139E-10    0.000000E+00          
+         55  phase0.collocation_constraint.defects:h                   e   0.000000E+00    7.037896E-10    0.000000E+00          
+         56  phase0.collocation_constraint.defects:h                   e   0.000000E+00   -3.128343E-10    0.000000E+00          
+         57  phase0.collocation_constraint.defects:h                   e   0.000000E+00    1.129098E-09    0.000000E+00          
+         58  phase0.collocation_constraint.defects:h                   e   0.000000E+00    2.377114E-09    0.000000E+00          
+         59  phase0.collocation_constraint.defects:h                   e   0.000000E+00   -1.039464E-09    0.000000E+00          
+         60  phase0.collocation_constraint.defects:r                   e   0.000000E+00    9.358195E-11    0.000000E+00          
+         61  phase0.collocation_constraint.defects:r                   e   0.000000E+00   -3.194514E-10    0.000000E+00          
+         62  phase0.collocation_constraint.defects:r                   e   0.000000E+00    1.252740E-09    0.000000E+00          
+         63  phase0.collocation_constraint.defects:r                   e   0.000000E+00    9.550993E-10    0.000000E+00          
+         64  phase0.collocation_constraint.defects:r                   e   0.000000E+00    6.985155E-09    0.000000E+00          
+         65  phase0.collocation_constraint.defects:r                   e   0.000000E+00    1.070760E-09    0.000000E+00          
+         66  phase0.collocation_constraint.defects:r                   e   0.000000E+00    9.553895E-09    0.000000E+00          
+         67  phase0.collocation_constraint.defects:r                   e   0.000000E+00    2.090111E-09    0.000000E+00          
+         68  phase0.collocation_constraint.defects:r                   e   0.000000E+00    2.183960E-09    0.000000E+00          
+         69  phase0.collocation_constraint.defects:r                   e   0.000000E+00    8.116266E-09    0.000000E+00          
+         70  phase0.collocation_constraint.defects:r                   e   0.000000E+00    7.447060E-09    0.000000E+00          
+         71  phase0.collocation_constraint.defects:r                   e   0.000000E+00    1.500028E-08    0.000000E+00          
+         72  phase0.collocation_constraint.defects:r                   e   0.000000E+00    6.915847E-09    0.000000E+00          
+         73  phase0.collocation_constraint.defects:r                   e   0.000000E+00    1.890831E-08    0.000000E+00          
+         74  phase0.collocation_constraint.defects:r                   e   0.000000E+00   -2.304664E-09    0.000000E+00          
+         75  phase0.continuity_comp.defect_control_rates:alpha_rate    e   0.000000E+00    6.683930E-13    0.000000E+00          
+         76  phase0.continuity_comp.defect_control_rates:alpha_rate    e   0.000000E+00   -2.227977E-13    0.000000E+00          
+         77  phase0.continuity_comp.defect_control_rates:alpha_rate    e   0.000000E+00    1.113988E-12    0.000000E+00          
+         78  phase0.continuity_comp.defect_control_rates:alpha_rate    e   0.000000E+00   -6.683930E-13    0.000000E+00          
+         79  phase0.continuity_comp.defect_control_rates:alpha_rate    e   0.000000E+00    4.455953E-13    0.000000E+00          
+         80  phase0.continuity_comp.defect_control_rates:alpha_rate    e   0.000000E+00    1.113988E-13    0.000000E+00          
+         81  phase0.continuity_comp.defect_control_rates:alpha_rate    e   0.000000E+00    0.000000E+00    0.000000E+00          
+         82  phase0.continuity_comp.defect_control_rates:alpha_rate    e   0.000000E+00   -6.614305E-13    0.000000E+00          
+         83  phase0.continuity_comp.defect_control_rates:alpha_rate    e   0.000000E+00    6.649117E-13    0.000000E+00          
+         84  phase0.continuity_comp.defect_control_rates:alpha_rate    e   0.000000E+00    0.000000E+00    0.000000E+00          
+         85  phase0.continuity_comp.defect_control_rates:alpha_rate    e   0.000000E+00    1.232350E-12    0.000000E+00          
+         86  phase0.continuity_comp.defect_control_rates:alpha_rate    e   0.000000E+00    2.005179E-12    0.000000E+00          
+         87  phase0.continuity_comp.defect_control_rates:alpha_rate    e   0.000000E+00   -1.336786E-12    0.000000E+00          
+         88  phase0.continuity_comp.defect_control_rates:alpha_rate    e   0.000000E+00   -4.455953E-13    0.000000E+00          
+         89  phase0.boundary_constraints.final_value:h                 e   2.000000E+01    2.000000E+01    2.000000E+01          
+         90  phase0.boundary_constraints.final_value:mach              e   1.000000E+00    1.000000E+00    1.000000E+00          
+         91  phase0.boundary_constraints.final_value:gam               e   0.000000E+00   -1.536960E-19    0.000000E+00          
+         92  phase0.path_constraints.path:h                            i   5.000000E-03    5.000000E-03    1.000000E+00         l
+         93  phase0.path_constraints.path:h                            i   5.000000E-03    5.000000E-03    1.000000E+00         l
+         94  phase0.path_constraints.path:h                            i   5.000000E-03    1.133722E-02    1.000000E+00          
+         95  phase0.path_constraints.path:h                            i   5.000000E-03    1.133722E-02    1.000000E+00          
+         96  phase0.path_constraints.path:h                            i   5.000000E-03    4.617985E-02    1.000000E+00          
+         97  phase0.path_constraints.path:h                            i   5.000000E-03    1.216112E-01    1.000000E+00          
+         98  phase0.path_constraints.path:h                            i   5.000000E-03    1.216112E-01    1.000000E+00          
+         99  phase0.path_constraints.path:h                            i   5.000000E-03    2.136995E-01    1.000000E+00          
+        100  phase0.path_constraints.path:h                            i   5.000000E-03    2.941223E-01    1.000000E+00          
+        101  phase0.path_constraints.path:h                            i   5.000000E-03    2.941223E-01    1.000000E+00          
+        102  phase0.path_constraints.path:h                            i   5.000000E-03    3.618414E-01    1.000000E+00          
+        103  phase0.path_constraints.path:h                            i   5.000000E-03    4.183997E-01    1.000000E+00          
+        104  phase0.path_constraints.path:h                            i   5.000000E-03    4.183997E-01    1.000000E+00          
+        105  phase0.path_constraints.path:h                            i   5.000000E-03    4.477042E-01    1.000000E+00          
+        106  phase0.path_constraints.path:h                            i   5.000000E-03    4.379378E-01    1.000000E+00          
+        107  phase0.path_constraints.path:h                            i   5.000000E-03    4.379378E-01    1.000000E+00          
+        108  phase0.path_constraints.path:h                            i   5.000000E-03    4.000645E-01    1.000000E+00          
+        109  phase0.path_constraints.path:h                            i   5.000000E-03    3.645643E-01    1.000000E+00          
+        110  phase0.path_constraints.path:h                            i   5.000000E-03    3.645643E-01    1.000000E+00          
+        111  phase0.path_constraints.path:h                            i   5.000000E-03    3.508797E-01    1.000000E+00          
+        112  phase0.path_constraints.path:h                            i   5.000000E-03    3.552637E-01    1.000000E+00          
+        113  phase0.path_constraints.path:h                            i   5.000000E-03    3.552637E-01    1.000000E+00          
+        114  phase0.path_constraints.path:h                            i   5.000000E-03    3.689107E-01    1.000000E+00          
+        115  phase0.path_constraints.path:h                            i   5.000000E-03    3.844634E-01    1.000000E+00          
+        116  phase0.path_constraints.path:h                            i   5.000000E-03    3.844634E-01    1.000000E+00          
+        117  phase0.path_constraints.path:h                            i   5.000000E-03    3.986872E-01    1.000000E+00          
+        118  phase0.path_constraints.path:h                            i   5.000000E-03    4.122888E-01    1.000000E+00          
+        119  phase0.path_constraints.path:h                            i   5.000000E-03    4.122888E-01    1.000000E+00          
+        120  phase0.path_constraints.path:h                            i   5.000000E-03    4.257800E-01    1.000000E+00          
+        121  phase0.path_constraints.path:h                            i   5.000000E-03    4.381405E-01    1.000000E+00          
+        122  phase0.path_constraints.path:h                            i   5.000000E-03    4.381405E-01    1.000000E+00          
+        123  phase0.path_constraints.path:h                            i   5.000000E-03    4.471219E-01    1.000000E+00          
+        124  phase0.path_constraints.path:h                            i   5.000000E-03    4.514783E-01    1.000000E+00          
+        125  phase0.path_constraints.path:h                            i   5.000000E-03    4.514783E-01    1.000000E+00          
+        126  phase0.path_constraints.path:h                            i   5.000000E-03    4.524613E-01    1.000000E+00          
+        127  phase0.path_constraints.path:h                            i   5.000000E-03    4.644603E-01    1.000000E+00          
+        128  phase0.path_constraints.path:h                            i   5.000000E-03    4.644603E-01    1.000000E+00          
+        129  phase0.path_constraints.path:h                            i   5.000000E-03    5.118346E-01    1.000000E+00          
+        130  phase0.path_constraints.path:h                            i   5.000000E-03    6.063558E-01    1.000000E+00          
+        131  phase0.path_constraints.path:h                            i   5.000000E-03    6.063558E-01    1.000000E+00          
+        132  phase0.path_constraints.path:h                            i   5.000000E-03    7.359931E-01    1.000000E+00          
+        133  phase0.path_constraints.path:h                            i   5.000000E-03    8.648268E-01    1.000000E+00          
+        134  phase0.path_constraints.path:h                            i   5.000000E-03    8.648268E-01    1.000000E+00          
+        135  phase0.path_constraints.path:h                            i   5.000000E-03    9.615920E-01    1.000000E+00          
+        136  phase0.path_constraints.path:h                            i   5.000000E-03    1.000000E+00    1.000000E+00         u
+        137  phase0.path_constraints.path:mach                         i   1.000000E-01    4.000299E-01    1.800000E+00          
+        138  phase0.path_constraints.path:mach                         i   1.000000E-01    5.876766E-01    1.800000E+00          
+        139  phase0.path_constraints.path:mach                         i   1.000000E-01    7.731946E-01    1.800000E+00          
+        140  phase0.path_constraints.path:mach                         i   1.000000E-01    7.731946E-01    1.800000E+00          
+        141  phase0.path_constraints.path:mach                         i   1.000000E-01    8.998840E-01    1.800000E+00          
+        142  phase0.path_constraints.path:mach                         i   1.000000E-01    9.394861E-01    1.800000E+00          
+        143  phase0.path_constraints.path:mach                         i   1.000000E-01    9.394861E-01    1.800000E+00          
+        144  phase0.path_constraints.path:mach                         i   1.000000E-01    9.347041E-01    1.800000E+00          
+        145  phase0.path_constraints.path:mach                         i   1.000000E-01    9.313472E-01    1.800000E+00          
+        146  phase0.path_constraints.path:mach                         i   1.000000E-01    9.313472E-01    1.800000E+00          
+        147  phase0.path_constraints.path:mach                         i   1.000000E-01    9.275353E-01    1.800000E+00          
+        148  phase0.path_constraints.path:mach                         i   1.000000E-01    9.292000E-01    1.800000E+00          
+        149  phase0.path_constraints.path:mach                         i   1.000000E-01    9.292000E-01    1.800000E+00          
+        150  phase0.path_constraints.path:mach                         i   1.000000E-01    9.734683E-01    1.800000E+00          
+        151  phase0.path_constraints.path:mach                         i   1.000000E-01    1.065748E+00    1.800000E+00          
+        152  phase0.path_constraints.path:mach                         i   1.000000E-01    1.065748E+00    1.800000E+00          
+        153  phase0.path_constraints.path:mach                         i   1.000000E-01    1.174630E+00    1.800000E+00          
+        154  phase0.path_constraints.path:mach                         i   1.000000E-01    1.264561E+00    1.800000E+00          
+        155  phase0.path_constraints.path:mach                         i   1.000000E-01    1.264561E+00    1.800000E+00          
+        156  phase0.path_constraints.path:mach                         i   1.000000E-01    1.321721E+00    1.800000E+00          
+        157  phase0.path_constraints.path:mach                         i   1.000000E-01    1.358677E+00    1.800000E+00          
+        158  phase0.path_constraints.path:mach                         i   1.000000E-01    1.358677E+00    1.800000E+00          
+        159  phase0.path_constraints.path:mach                         i   1.000000E-01    1.388216E+00    1.800000E+00          
+        160  phase0.path_constraints.path:mach                         i   1.000000E-01    1.417746E+00    1.800000E+00          
+        161  phase0.path_constraints.path:mach                         i   1.000000E-01    1.417746E+00    1.800000E+00          
+        162  phase0.path_constraints.path:mach                         i   1.000000E-01    1.449673E+00    1.800000E+00          
+        163  phase0.path_constraints.path:mach                         i   1.000000E-01    1.482981E+00    1.800000E+00          
+        164  phase0.path_constraints.path:mach                         i   1.000000E-01    1.482981E+00    1.800000E+00          
+        165  phase0.path_constraints.path:mach                         i   1.000000E-01    1.517305E+00    1.800000E+00          
+        166  phase0.path_constraints.path:mach                         i   1.000000E-01    1.553967E+00    1.800000E+00          
+        167  phase0.path_constraints.path:mach                         i   1.000000E-01    1.553967E+00    1.800000E+00          
+        168  phase0.path_constraints.path:mach                         i   1.000000E-01    1.595072E+00    1.800000E+00          
+        169  phase0.path_constraints.path:mach                         i   1.000000E-01    1.640481E+00    1.800000E+00          
+        170  phase0.path_constraints.path:mach                         i   1.000000E-01    1.640481E+00    1.800000E+00          
+        171  phase0.path_constraints.path:mach                         i   1.000000E-01    1.686770E+00    1.800000E+00          
+        172  phase0.path_constraints.path:mach                         i   1.000000E-01    1.718594E+00    1.800000E+00          
+        173  phase0.path_constraints.path:mach                         i   1.000000E-01    1.718594E+00    1.800000E+00          
+        174  phase0.path_constraints.path:mach                         i   1.000000E-01    1.714983E+00    1.800000E+00          
+        175  phase0.path_constraints.path:mach                         i   1.000000E-01    1.630024E+00    1.800000E+00          
+        176  phase0.path_constraints.path:mach                         i   1.000000E-01    1.630024E+00    1.800000E+00          
+        177  phase0.path_constraints.path:mach                         i   1.000000E-01    1.453135E+00    1.800000E+00          
+        178  phase0.path_constraints.path:mach                         i   1.000000E-01    1.252538E+00    1.800000E+00          
+        179  phase0.path_constraints.path:mach                         i   1.000000E-01    1.252538E+00    1.800000E+00          
+        180  phase0.path_constraints.path:mach                         i   1.000000E-01    1.080359E+00    1.800000E+00          
+        181  phase0.path_constraints.path:mach                         i   1.000000E-01    1.000000E+00    1.800000E+00          
+        182  phase0.path_constraints.path:alpha                        i  -8.000000E+00    5.483147E+00    8.000000E+00          
+        183  phase0.path_constraints.path:alpha                        i  -8.000000E+00    2.634371E+00    8.000000E+00          
+        184  phase0.path_constraints.path:alpha                        i  -8.000000E+00    2.031464E+00    8.000000E+00          
+        185  phase0.path_constraints.path:alpha                        i  -8.000000E+00    2.031464E+00    8.000000E+00          
+        186  phase0.path_constraints.path:alpha                        i  -8.000000E+00    2.125766E+00    8.000000E+00          
+        187  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.368612E+00    8.000000E+00          
+        188  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.368612E+00    8.000000E+00          
+        189  phase0.path_constraints.path:alpha                        i  -8.000000E+00    7.670910E-01    8.000000E+00          
+        190  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.328292E+00    8.000000E+00          
+        191  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.328292E+00    8.000000E+00          
+        192  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.851437E+00    8.000000E+00          
+        193  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.135748E+00    8.000000E+00          
+        194  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.135748E+00    8.000000E+00          
+        195  phase0.path_constraints.path:alpha                        i  -8.000000E+00    4.592728E-01    8.000000E+00          
+        196  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.100061E+00    8.000000E+00          
+        197  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.100061E+00    8.000000E+00          
+        198  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.982795E+00    8.000000E+00          
+        199  phase0.path_constraints.path:alpha                        i  -8.000000E+00    2.032157E+00    8.000000E+00          
+        200  phase0.path_constraints.path:alpha                        i  -8.000000E+00    2.032157E+00    8.000000E+00          
+        201  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.695937E+00    8.000000E+00          
+        202  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.421927E+00    8.000000E+00          
+        203  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.421927E+00    8.000000E+00          
+        204  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.247832E+00    8.000000E+00          
+        205  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.211359E+00    8.000000E+00          
+        206  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.211359E+00    8.000000E+00          
+        207  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.239160E+00    8.000000E+00          
+        208  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.257885E+00    8.000000E+00          
+        209  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.257885E+00    8.000000E+00          
+        210  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.249305E+00    8.000000E+00          
+        211  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.195190E+00    8.000000E+00          
+        212  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.195190E+00    8.000000E+00          
+        213  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.147560E+00    8.000000E+00          
+        214  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.158433E+00    8.000000E+00          
+        215  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.158433E+00    8.000000E+00          
+        216  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.382530E+00    8.000000E+00          
+        217  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.974573E+00    8.000000E+00          
+        218  phase0.path_constraints.path:alpha                        i  -8.000000E+00    1.974573E+00    8.000000E+00          
+        219  phase0.path_constraints.path:alpha                        i  -8.000000E+00    2.778733E+00    8.000000E+00          
+        220  phase0.path_constraints.path:alpha                        i  -8.000000E+00    3.639182E+00    8.000000E+00          
+        221  phase0.path_constraints.path:alpha                        i  -8.000000E+00    3.639182E+00    8.000000E+00          
+        222  phase0.path_constraints.path:alpha                        i  -8.000000E+00    3.923835E+00    8.000000E+00          
+        223  phase0.path_constraints.path:alpha                        i  -8.000000E+00    3.000606E+00    8.000000E+00          
+        224  phase0.path_constraints.path:alpha                        i  -8.000000E+00    3.000606E+00    8.000000E+00          
+        225  phase0.path_constraints.path:alpha                        i  -8.000000E+00   -2.442811E-01    8.000000E+00          
+        226  phase0.path_constraints.path:alpha                        i  -8.000000E+00   -6.924604E+00    8.000000E+00          
 
 --------------------------------------------------------------------------------
 
-[321.08525592]
+[321.08525545]
 </pre></div></div><div class="figure">
 <img alt="../_images/doc_plot_5.png" src="../_images/doc_plot_5.png" />
 </div>
@@ -712,7 +697,7 @@ Optimization Problem -- Optimization using pyOpt_sparse
         <li class="right" >
           <a href="double_integrator.html" title="Double Integrator"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="examples.html" >Examples</a> &#187;</li> 
       </ul>
     </div>

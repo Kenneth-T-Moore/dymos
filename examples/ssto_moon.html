@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>SSTO Lunar Ascent &#8212; dymos 0.8.3 documentation</title>
+    <title>SSTO Lunar Ascent &#8212; dymos 0.9.0 documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.8.3',
+        VERSION:     '0.9.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="ssto_earth.html" title="SSTO Earth Launch"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="examples.html" accesskey="U">Examples</a> &#187;</li> 
       </ul>
     </div>
@@ -112,12 +112,12 @@ SSTO Earth Ascent example, but the atmospheric model returns a density of zero
 
 <span class="n">phase</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">phase0</span>
 
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">350000.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">185000.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:vx&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1627.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:vy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0E-6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:m&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">50000</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.controls:theta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.76</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;control_disc&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">350000.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">185000.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:vx&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1627.0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:vy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0E-6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:m&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">50000</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.controls:theta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.76</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;control_input&#39;</span><span class="p">)</span>
 
 <span class="n">p</span><span class="o">.</span><span class="n">run_driver</span><span class="p">()</span>
 
@@ -164,24 +164,12 @@ SSTO Earth Ascent example, but the atmospheric model returns a density of zero
 
 WARNING: The Problem has no recorder of any kind attached
 
-Using tolerance: 1e-16
-Most common number of zero entries (6292 of 6731) repeated 7 times out of 11 tolerances tested.
+Using tolerance: 1e-15
+Most common number of zero entries (6292 of 6731) repeated 6 times out of 11 tolerances tested.
 
 Total jacobian shape: (53, 127) 
 
-1 uncolored columns
-9 columns in color 1
-9 columns in color 2
-9 columns in color 3
-9 columns in color 4
-10 columns in color 5
-10 columns in color 6
-10 columns in color 7
-10 columns in color 8
-11 columns in color 9
-19 columns in color 10
-20 columns in color 11
-/Users/rfalck/Codes/OpenMDAO.git/openmdao/core/driver.py:337: RuntimeWarning: Inefficient choice of derivative mode.  You chose &#x27;fwd&#x27; for a problem with 127 design variables and 108 response variables (objectives and constraints).
+/Users/rfalck/Codes/OpenMDAO.git/openmdao/core/driver.py:340: RuntimeWarning: Inefficient choice of derivative mode.  You chose &#x27;fwd&#x27; for a problem with 127 design variables and 108 response variables (objectives and constraints).
   (problem._mode, desvar_size, response_size), RuntimeWarning)
 Optimization terminated successfully.    (Exit mode 0)
             Current function value: 4.817170027377303
@@ -192,7 +180,7 @@ Optimization Complete
 -----------------------------------
 [185000.]
 [1627.]
-[-3.53940205e-18]
+[-1.72005887e-18]
 </pre></div></div><div class="figure">
 <img alt="../_images/doc_plot_9.png" src="../_images/doc_plot_9.png" />
 </div>
@@ -225,7 +213,7 @@ Optimization Complete
         <li class="right" >
           <a href="ssto_earth.html" title="SSTO Earth Launch"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="examples.html" >Examples</a> &#187;</li> 
       </ul>
     </div>

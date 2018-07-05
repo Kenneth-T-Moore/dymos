@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Brachistochrone with Simultaneous Derivatives &#8212; dymos 0.8.3 documentation</title>
+    <title>Brachistochrone with Simultaneous Derivatives &#8212; dymos 0.9.0 documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.8.3',
+        VERSION:     '0.9.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="brachistochrone.html" title="Brachistochrone: A simple optimal control example"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="examples.html" accesskey="U">Examples</a> &#187;</li> 
       </ul>
     </div>
@@ -182,10 +182,10 @@ add the following lines to the driver.</p>
 <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.t_initial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.t_duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span>
 
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:v&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">9.9</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.controls:theta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mf">100.5</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;control_disc&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:v&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">9.9</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.controls:theta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mf">100.5</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;control_input&#39;</span><span class="p">)</span>
 
 <span class="c1"># Solve for the optimal trajectory</span>
 <span class="n">p</span><span class="o">.</span><span class="n">run_driver</span><span class="p">()</span>
@@ -284,7 +284,7 @@ uncompressed transcription may give better performance.</p>
         <li class="right" >
           <a href="brachistochrone.html" title="Brachistochrone: A simple optimal control example"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="examples.html" >Examples</a> &#187;</li> 
       </ul>
     </div>

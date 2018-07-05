@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>dymos.phases.optimizer_based.optimizer_based_phase_base &#8212; dymos 0.8.3 documentation</title>
+    <title>dymos.phases.optimizer_based.optimizer_based_phase_base &#8212; dymos 0.9.0 documentation</title>
     <link rel="stylesheet" href="../../../../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../',
-        VERSION:     '0.8.3',
+        VERSION:     '0.9.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -37,7 +37,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="../../../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="../../../../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
@@ -68,7 +68,7 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">dymos.phases.optimizer_based.components</span> <span class="k">import</span> <span class="n">CollocationComp</span><span class="p">,</span> <span class="n">StateInterpComp</span>
-<span class="kn">from</span> <span class="nn">dymos.phases.components</span> <span class="k">import</span> <span class="n">EndpointConditionsComp</span><span class="p">,</span> <span class="n">ContinuityComp</span>
+<span class="kn">from</span> <span class="nn">dymos.phases.components</span> <span class="k">import</span> <span class="n">EndpointConditionsComp</span>
 <span class="kn">from</span> <span class="nn">dymos.phases.phase_base</span> <span class="k">import</span> <span class="n">PhaseBase</span>
 <span class="kn">from</span> <span class="nn">dymos.utils.interpolate</span> <span class="k">import</span> <span class="n">LagrangeBarycentricInterpolant</span>
 <span class="kn">from</span> <span class="nn">dymos.utils.misc</span> <span class="k">import</span> <span class="n">CoerceDesvar</span>
@@ -200,15 +200,12 @@
 
             <span class="k">for</span> <span class="n">control_name</span><span class="p">,</span> <span class="n">options</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_options</span><span class="p">):</span>
 
-                <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;opt&#39;</span><span class="p">]:</span>
-                    <span class="n">control_vals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_outputs</span><span class="p">[</span><span class="s1">&#39;controls:</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">control_name</span><span class="p">)]</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">control_vals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_outputs</span><span class="p">[</span><span class="s1">&#39;controls:</span><span class="si">{0}</span><span class="s1">_out&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">control_name</span><span class="p">)]</span>
+                <span class="n">control_vals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_outputs</span><span class="p">[</span><span class="s1">&#39;control_interp_comp.&#39;</span>
+                                             <span class="s1">&#39;control_values:</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">control_name</span><span class="p">)]</span>
 
                 <span class="c1"># if options[&#39;dynamic&#39;]:</span>
-                <span class="n">map_input_idxs_to_all</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_data</span><span class="o">.</span><span class="n">input_maps</span><span class="p">[</span><span class="s1">&#39;dynamic_control_input_to_disc&#39;</span><span class="p">]</span>
                 <span class="n">interp</span> <span class="o">=</span> <span class="n">LagrangeBarycentricInterpolant</span><span class="p">(</span><span class="n">gd</span><span class="o">.</span><span class="n">node_stau</span><span class="p">[</span><span class="n">seg_idxs</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">seg_idxs</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
-                <span class="n">ctrl_vals</span> <span class="o">=</span> <span class="n">control_vals</span><span class="p">[</span><span class="n">map_input_idxs_to_all</span><span class="p">][</span><span class="n">seg_idxs</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">seg_idxs</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+                <span class="n">ctrl_vals</span> <span class="o">=</span> <span class="n">control_vals</span><span class="p">[</span><span class="n">seg_idxs</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">seg_idxs</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
                 <span class="n">interp</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">x0</span><span class="o">=</span><span class="n">seg_times</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xf</span><span class="o">=</span><span class="n">seg_times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">f_j</span><span class="o">=</span><span class="n">ctrl_vals</span><span class="p">)</span>
                 <span class="n">rhs_integrator</span><span class="o">.</span><span class="n">set_interpolant</span><span class="p">(</span><span class="n">control_name</span><span class="p">,</span> <span class="n">interp</span><span class="p">)</span>
 
@@ -266,13 +263,9 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">OptimizerBasedPhaseBase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
 
         <span class="n">transcription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;transcription&#39;</span><span class="p">]</span>
-        <span class="n">grid_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_data</span>
 
         <span class="n">num_opt_controls</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">name</span> <span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_options</span><span class="p">)</span>
                                 <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;opt&#39;</span><span class="p">]])</span>
-
-        <span class="n">num_input_controls</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">name</span> <span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_options</span><span class="p">)</span>
-                                  <span class="k">if</span> <span class="ow">not</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;opt&#39;</span><span class="p">]])</span>
 
         <span class="n">num_opt_design_params</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">name</span> <span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span> <span class="ow">in</span>
                                      <span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">design_parameter_options</span><span class="p">)</span> <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;opt&#39;</span><span class="p">]])</span>
@@ -284,26 +277,23 @@
         <span class="n">num_controls</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_options</span><span class="p">)</span>
 
         <span class="n">indep_controls</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;indep_controls&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">num_opt_controls</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">[]</span>
-        <span class="n">input_controls</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;input_controls&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">num_input_controls</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">[]</span>
         <span class="n">indep_design_params</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;indep_design_params&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">num_opt_design_params</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">[]</span>
         <span class="n">input_design_params</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;input_design_params&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">num_input_design_params</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">[]</span>
-        <span class="n">control_rate_comp</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;control_rate_comp&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">num_controls</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">[]</span>
-        <span class="n">control_defect_comp</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;control_defect_comp&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">num_opt_controls</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">[]</span>
+        <span class="n">control_interp_comp</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;control_interp_comp&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">num_controls</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">[]</span>
 
-        <span class="n">order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time_extents</span> <span class="o">+</span> <span class="n">input_controls</span> <span class="o">+</span> <span class="n">indep_controls</span> <span class="o">+</span> \
+        <span class="n">order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time_extents</span> <span class="o">+</span> <span class="n">indep_controls</span> <span class="o">+</span> \
             <span class="n">indep_design_params</span> <span class="o">+</span> <span class="n">input_design_params</span> <span class="o">+</span> \
-            <span class="p">[</span><span class="s1">&#39;indep_states&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">control_rate_comp</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;indep_jumps&#39;</span><span class="p">,</span> <span class="s1">&#39;endpoint_conditions&#39;</span><span class="p">]</span>
+            <span class="p">[</span><span class="s1">&#39;indep_states&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">control_interp_comp</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;indep_jumps&#39;</span><span class="p">,</span> <span class="s1">&#39;endpoint_conditions&#39;</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">transcription</span> <span class="o">==</span> <span class="s1">&#39;gauss-lobatto&#39;</span><span class="p">:</span>
             <span class="n">order</span> <span class="o">=</span> <span class="n">order</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;rhs_disc&#39;</span><span class="p">,</span> <span class="s1">&#39;state_interp&#39;</span><span class="p">,</span> <span class="s1">&#39;rhs_col&#39;</span><span class="p">,</span> <span class="s1">&#39;collocation_constraint&#39;</span><span class="p">]</span>
         <span class="k">elif</span> <span class="n">transcription</span> <span class="o">==</span> <span class="s1">&#39;radau-ps&#39;</span><span class="p">:</span>
-            <span class="n">order</span> <span class="o">=</span> <span class="n">order</span> <span class="o">+</span> <span class="n">control_defect_comp</span> <span class="o">+</span> \
-                <span class="p">[</span><span class="s1">&#39;state_interp&#39;</span><span class="p">,</span> <span class="s1">&#39;rhs_all&#39;</span><span class="p">,</span> <span class="s1">&#39;collocation_constraint&#39;</span><span class="p">]</span>
+            <span class="n">order</span> <span class="o">=</span> <span class="n">order</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;state_interp&#39;</span><span class="p">,</span> <span class="s1">&#39;rhs_all&#39;</span><span class="p">,</span> <span class="s1">&#39;collocation_constraint&#39;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid transcription: </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">transcription</span><span class="p">))</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_requires_continuity_comp</span><span class="p">():</span>
-            <span class="n">order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;continuity_constraint&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_data</span><span class="o">.</span><span class="n">num_segments</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;continuity_comp&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;boundary_constraints&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;boundary_constraints&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;path_constraints&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -314,7 +304,7 @@
         <span class="n">grid_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_data</span>
         <span class="n">time_units</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_options</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span>
         <span class="n">map_input_indices_to_disc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_data</span><span class="o">.</span><span class="n">input_maps</span><span class="p">[</span><span class="s1">&#39;state_input_to_disc&#39;</span><span class="p">]</span>
-        <span class="n">num_input_nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_data</span><span class="o">.</span><span class="n">num_state_input_nodes</span>
+        <span class="n">num_input_nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_data</span><span class="o">.</span><span class="n">subset_num_nodes</span><span class="p">[</span><span class="s1">&#39;state_input&#39;</span><span class="p">]</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">add_subsystem</span><span class="p">(</span><span class="s1">&#39;state_interp&#39;</span><span class="p">,</span>
                            <span class="n">subsys</span><span class="o">=</span><span class="n">StateInterpComp</span><span class="p">(</span><span class="n">grid_data</span><span class="o">=</span><span class="n">grid_data</span><span class="p">,</span>
@@ -343,7 +333,7 @@
 <span class="sd">        Add an IndepVarComp for the states and setup the states as design variables.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">grid_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_data</span>
-        <span class="n">num_state_input_nodes</span> <span class="o">=</span> <span class="n">grid_data</span><span class="o">.</span><span class="n">num_state_input_nodes</span>
+        <span class="n">num_state_input_nodes</span> <span class="o">=</span> <span class="n">grid_data</span><span class="o">.</span><span class="n">subset_num_nodes</span><span class="p">[</span><span class="s1">&#39;state_input&#39;</span><span class="p">]</span>
 
         <span class="n">indep</span> <span class="o">=</span> <span class="n">IndepVarComp</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">options</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_options</span><span class="p">):</span>
@@ -407,34 +397,6 @@
                                         <span class="n">ref</span><span class="o">=</span><span class="n">coerce_desvar_option</span><span class="p">(</span><span class="s1">&#39;ref&#39;</span><span class="p">),</span>
                                         <span class="n">indices</span><span class="o">=</span><span class="n">desvar_indices</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_requires_continuity_comp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns True if the phase requires a continuity enforcement component.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">grid_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_data</span>
-        <span class="n">compressed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;compressed&#39;</span><span class="p">]</span>
-        <span class="n">num_seg</span> <span class="o">=</span> <span class="n">grid_data</span><span class="o">.</span><span class="n">num_segments</span>
-
-        <span class="n">continuous_states</span> <span class="o">=</span> \
-            <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_options</span><span class="p">)</span> <span class="k">if</span> <span class="n">opts</span><span class="p">[</span><span class="s1">&#39;continuity&#39;</span><span class="p">]]</span>
-
-        <span class="n">continuous_controls</span> <span class="o">=</span> \
-            <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_options</span><span class="p">)</span> <span class="k">if</span> <span class="n">opts</span><span class="p">[</span><span class="s1">&#39;continuity&#39;</span><span class="p">]]</span>
-
-        <span class="n">rate_continuous_controls</span> <span class="o">=</span> \
-            <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_options</span><span class="p">)</span> <span class="k">if</span> <span class="n">opts</span><span class="p">[</span><span class="s1">&#39;rate_continuity&#39;</span><span class="p">]]</span>
-
-        <span class="n">rate2_continuous_controls</span> <span class="o">=</span> \
-            <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_options</span><span class="p">)</span> <span class="k">if</span> <span class="n">opts</span><span class="p">[</span><span class="s1">&#39;rate2_continuity&#39;</span><span class="p">]]</span>
-
-        <span class="n">state_val_cont_required</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">compressed</span> <span class="ow">and</span> <span class="n">num_seg</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">continuous_states</span>
-        <span class="n">control_val_cont_required</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">compressed</span> <span class="ow">and</span> <span class="n">num_seg</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">continuous_controls</span>
-        <span class="n">control_rate_cont_required</span> <span class="o">=</span> <span class="n">num_seg</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">rate_continuous_controls</span>
-        <span class="n">control_rate2_cont_required</span> <span class="o">=</span> <span class="n">num_seg</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">rate2_continuous_controls</span>
-
-        <span class="k">return</span> <span class="p">(</span><span class="n">state_val_cont_required</span> <span class="ow">or</span> <span class="n">control_val_cont_required</span> <span class="ow">or</span>
-                <span class="n">control_rate_cont_required</span> <span class="ow">or</span> <span class="n">control_rate2_cont_required</span><span class="p">)</span>
-
     <span class="k">def</span> <span class="nf">_setup_defects</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Setup the Collocation and Continuity components as necessary.</span>
@@ -450,50 +412,35 @@
                                            <span class="n">state_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">state_options</span><span class="p">,</span>
                                            <span class="n">time_units</span><span class="o">=</span><span class="n">time_units</span><span class="p">))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-            <span class="s1">&#39;time.dt_dstau&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;collocation_constraint.dt_dstau&#39;</span><span class="p">),</span>
-            <span class="n">src_indices</span><span class="o">=</span><span class="n">grid_data</span><span class="o">.</span><span class="n">subset_node_indices</span><span class="p">[</span><span class="s1">&#39;col&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;time.dt_dstau&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;collocation_constraint.dt_dstau&#39;</span><span class="p">),</span>
+                     <span class="n">src_indices</span><span class="o">=</span><span class="n">grid_data</span><span class="o">.</span><span class="n">subset_node_indices</span><span class="p">[</span><span class="s1">&#39;col&#39;</span><span class="p">])</span>
 
         <span class="c1"># Add the continuity constraint component if necessary</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_requires_continuity_comp</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">add_subsystem</span><span class="p">(</span><span class="s1">&#39;continuity_constraint&#39;</span><span class="p">,</span>
-                               <span class="n">ContinuityComp</span><span class="p">(</span><span class="n">grid_data</span><span class="o">=</span><span class="n">grid_data</span><span class="p">,</span>
-                                              <span class="n">state_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">state_options</span><span class="p">,</span>
-                                              <span class="n">control_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">control_options</span><span class="p">,</span>
-                                              <span class="n">time_units</span><span class="o">=</span><span class="n">time_units</span><span class="p">))</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;t_duration&#39;</span><span class="p">,</span> <span class="s1">&#39;continuity_constraint.t_duration&#39;</span><span class="p">)</span>
-
         <span class="k">if</span> <span class="n">num_seg</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;t_duration&#39;</span><span class="p">,</span> <span class="s1">&#39;continuity_comp.t_duration&#39;</span><span class="p">)</span>
 
             <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">options</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_options</span><span class="p">):</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">compressed</span> <span class="ow">and</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;continuity&#39;</span><span class="p">]:</span>
-                    <span class="c1"># The sub-indices of state_disc indices that are segment ends</span>
-                    <span class="n">state_disc_idxs</span> <span class="o">=</span> <span class="n">grid_data</span><span class="o">.</span><span class="n">subset_node_indices</span><span class="p">[</span><span class="s1">&#39;state_disc&#39;</span><span class="p">]</span>
-                    <span class="n">segment_end_idxs</span> <span class="o">=</span> <span class="n">grid_data</span><span class="o">.</span><span class="n">subset_node_indices</span><span class="p">[</span><span class="s1">&#39;segment_ends&#39;</span><span class="p">]</span>
-                    <span class="n">disc_subidxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">state_disc_idxs</span><span class="p">,</span> <span class="n">segment_end_idxs</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;states:</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
-                                 <span class="s1">&#39;continuity_constraint.states:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
-                                 <span class="n">src_indices</span><span class="o">=</span><span class="n">disc_subidxs</span><span class="p">)</span>
+                <span class="c1"># The sub-indices of state_disc indices that are segment ends</span>
+                <span class="n">state_disc_idxs</span> <span class="o">=</span> <span class="n">grid_data</span><span class="o">.</span><span class="n">subset_node_indices</span><span class="p">[</span><span class="s1">&#39;state_disc&#39;</span><span class="p">]</span>
+                <span class="n">segment_end_idxs</span> <span class="o">=</span> <span class="n">grid_data</span><span class="o">.</span><span class="n">subset_node_indices</span><span class="p">[</span><span class="s1">&#39;segment_ends&#39;</span><span class="p">]</span>
+                <span class="n">disc_subidxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">state_disc_idxs</span><span class="p">,</span> <span class="n">segment_end_idxs</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;states:</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
+                             <span class="s1">&#39;continuity_comp.states:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
+                             <span class="n">src_indices</span><span class="o">=</span><span class="n">disc_subidxs</span><span class="p">)</span>
 
             <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">options</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">control_options</span><span class="p">):</span>
-                <span class="n">control_src_name</span> <span class="o">=</span> <span class="s1">&#39;controls:</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;opt&#39;</span><span class="p">]</span> \
-                                   <span class="k">else</span> <span class="s1">&#39;controls:</span><span class="si">{0}</span><span class="s1">_out&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                <span class="n">control_src_name</span> <span class="o">=</span> <span class="s1">&#39;control_interp_comp.control_values:</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">control_src_name</span><span class="p">,</span>
+                             <span class="s1">&#39;continuity_comp.controls:</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
+                             <span class="n">src_indices</span><span class="o">=</span><span class="n">grid_data</span><span class="o">.</span><span class="n">subset_node_indices</span><span class="p">[</span><span class="s1">&#39;segment_ends&#39;</span><span class="p">])</span>
 
-                <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;dynamic&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;continuity&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">compressed</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">control_src_name</span><span class="p">,</span>
-                                 <span class="s1">&#39;continuity_constraint.controls:</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
-                                 <span class="n">src_indices</span><span class="o">=</span><span class="n">grid_data</span><span class="o">.</span><span class="n">subset_node_indices</span><span class="p">[</span><span class="s1">&#39;segment_ends&#39;</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;control_rates:</span><span class="si">{0}</span><span class="s1">_rate&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
+                             <span class="s1">&#39;continuity_comp.control_rates:</span><span class="si">{}</span><span class="s1">_rate&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
+                             <span class="n">src_indices</span><span class="o">=</span><span class="n">grid_data</span><span class="o">.</span><span class="n">subset_node_indices</span><span class="p">[</span><span class="s1">&#39;segment_ends&#39;</span><span class="p">])</span>
 
-                <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;opt&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;dynamic&#39;</span><span class="p">]:</span>
-                    <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rate_continuity&#39;</span><span class="p">]:</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;control_rates:</span><span class="si">{0}</span><span class="s1">_rate&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
-                                     <span class="s1">&#39;continuity_constraint.control_rates:</span><span class="si">{}</span><span class="s1">_rate&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
-                                     <span class="n">src_indices</span><span class="o">=</span><span class="n">grid_data</span><span class="o">.</span><span class="n">subset_node_indices</span><span class="p">[</span><span class="s1">&#39;segment_ends&#39;</span><span class="p">])</span>
-
-                    <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rate2_continuity&#39;</span><span class="p">]:</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;control_rates:</span><span class="si">{0}</span><span class="s1">_rate2&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
-                                     <span class="s1">&#39;continuity_constraint.control_rates:</span><span class="si">{}</span><span class="s1">_rate2&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
-                                     <span class="n">src_indices</span><span class="o">=</span><span class="n">grid_data</span><span class="o">.</span><span class="n">subset_node_indices</span><span class="p">[</span><span class="s1">&#39;segment_ends&#39;</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;control_rates:</span><span class="si">{0}</span><span class="s1">_rate2&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
+                             <span class="s1">&#39;continuity_comp.control_rates:</span><span class="si">{}</span><span class="s1">_rate2&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
+                             <span class="n">src_indices</span><span class="o">=</span><span class="n">grid_data</span><span class="o">.</span><span class="n">subset_node_indices</span><span class="p">[</span><span class="s1">&#39;segment_ends&#39;</span><span class="p">])</span>
 
     <span class="k">def</span> <span class="nf">_setup_endpoint_conditions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
@@ -556,11 +503,6 @@
             <span class="n">size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">])</span>
             <span class="n">ar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
 
-            <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;opt&#39;</span><span class="p">]:</span>
-                <span class="n">suffix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">suffix</span> <span class="o">=</span> <span class="s1">&#39;_out&#39;</span>
-
             <span class="n">jump_comp</span><span class="o">.</span><span class="n">add_output</span><span class="p">(</span><span class="s1">&#39;initial_jump:</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">control_name</span><span class="p">),</span>
                                  <span class="n">val</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">]),</span>
                                  <span class="n">units</span><span class="o">=</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">],</span>
@@ -573,7 +515,7 @@
                                  <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;discontinuity in </span><span class="si">{0}</span><span class="s1"> at the &#39;</span>
                                       <span class="s1">&#39;end of the phase&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">control_name</span><span class="p">))</span>
 
-            <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;controls:</span><span class="si">{0}{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">control_name</span><span class="p">,</span> <span class="n">suffix</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;control_interp_comp.control_values:</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">control_name</span><span class="p">),</span>
                          <span class="s1">&#39;endpoint_conditions.values:</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">control_name</span><span class="p">))</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;initial_jump:</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">control_name</span><span class="p">),</span>
@@ -604,7 +546,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="../../../../genindex.html" title="General Index"
              >index</a></li>
-        <li class="nav-item nav-item-0"><a href="../../../../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>

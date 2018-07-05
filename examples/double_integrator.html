@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Double Integrator &#8212; dymos 0.8.3 documentation</title>
+    <title>Double Integrator &#8212; dymos 0.9.0 documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.8.3',
+        VERSION:     '0.9.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="simultaneous_derivs.html" title="Brachistochrone with Simultaneous Derivatives"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="examples.html" accesskey="U">Examples</a> &#187;</li> 
       </ul>
     </div>
@@ -188,7 +188,7 @@ in the control.</p>
 <span class="n">phase</span><span class="o">.</span><span class="n">set_state_options</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fix_initial</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">phase</span><span class="o">.</span><span class="n">set_state_options</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">fix_initial</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">fix_final</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
-<span class="n">phase</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;m/s**2&#39;</span><span class="p">,</span> <span class="n">scaler</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">continuity</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">rate_continuity</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+<span class="n">phase</span><span class="o">.</span><span class="n">add_control</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;m/s**2&#39;</span><span class="p">,</span> <span class="n">scaler</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">continuity</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">rate_continuity</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
                   <span class="n">rate2_continuity</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
 
 <span class="c1"># Maximize distance travelled in one second.</span>
@@ -201,9 +201,9 @@ in the control.</p>
 <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.t_initial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.t_duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
 
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:v&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.controls:u&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;control_disc&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:v&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.controls:u&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;control_input&#39;</span><span class="p">)</span>
 
 <span class="n">p</span><span class="o">.</span><span class="n">run_driver</span><span class="p">()</span>
 
@@ -255,23 +255,15 @@ in the control.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered"><div class="output_area"><pre>WARNING: The Problem has no recorder of any kind attached
 
-Using tolerance: 1e-16
-Most common number of zero entries (3106 of 3362) repeated 7 times out of 11 tolerances tested.
+Using tolerance: 1e-20
+Most common number of zero entries (3106 of 3362) repeated 11 times out of 11 tolerances tested.
 
 Total jacobian shape: (41, 82) 
 
-1 uncolored columns
-2 columns in color 1
-9 columns in color 2
-9 columns in color 3
-10 columns in color 4
-10 columns in color 5
-11 columns in color 6
-30 columns in color 7
-/Users/rfalck/Codes/OpenMDAO.git/openmdao/core/driver.py:337: RuntimeWarning: Inefficient choice of derivative mode.  You chose &#x27;fwd&#x27; for a problem with 82 design variables and 41 response variables (objectives and constraints).
+/Users/rfalck/Codes/OpenMDAO.git/openmdao/core/driver.py:340: RuntimeWarning: Inefficient choice of derivative mode.  You chose &#x27;fwd&#x27; for a problem with 82 design variables and 41 response variables (objectives and constraints).
   (problem._mode, desvar_size, response_size), RuntimeWarning)
 Optimization terminated successfully.    (Exit mode 0)
-            Current function value: -0.2500000000000006
+            Current function value: -0.24999999999999847
             Iterations: 7
             Function evaluations: 7
             Gradient evaluations: 7
@@ -301,7 +293,7 @@ Optimization Complete
         <li class="right" >
           <a href="simultaneous_derivs.html" title="Brachistochrone with Simultaneous Derivatives"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="examples.html" >Examples</a> &#187;</li> 
       </ul>
     </div>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Variables &#8212; dymos 0.8.3 documentation</title>
+    <title>Variables &#8212; dymos 0.9.0 documentation</title>
     <link rel="stylesheet" href="../../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.8.3',
+        VERSION:     '0.9.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="segments.html" title="Segments"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../user_guide.html" >Dymos User’s Guide</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="phases.html" accesskey="U">Phases of a Trajectory</a> &#187;</li> 
       </ul>
@@ -401,11 +401,11 @@ assigned to controllable parameters to the ODE.  Therefore, the method name to a
 a phase is <cite>add_control</cite>. Valid options for controls and design parameters are as follows:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="9%" />
-<col width="4%" />
-<col width="6%" />
-<col width="12%" />
-<col width="68%" />
+<col width="10%" />
+<col width="5%" />
+<col width="8%" />
+<col width="15%" />
+<col width="62%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Option</th>
@@ -434,121 +434,115 @@ a phase is <cite>add_control</cite>. Valid options for controls and design param
 <td>[‘str’]</td>
 <td>The description of the control variable.</td>
 </tr>
-<tr class="row-odd"><td>dynamic</td>
-<td>True</td>
-<td>N/A</td>
-<td>[‘bool’]</td>
-<td>If True, the control is vectorized, providing a value at each node in the phase.  If False, the control is static, providing a single value to be broadcast to all nodes in the phase.</td>
-</tr>
-<tr class="row-even"><td>fix_final</td>
+<tr class="row-odd"><td>fix_final</td>
 <td>False</td>
 <td>N/A</td>
 <td>[‘bool’]</td>
 <td>If True, the final value of this control is fixed and not a design variable. This option is invalid if opt=False.</td>
 </tr>
-<tr class="row-odd"><td>fix_initial</td>
+<tr class="row-even"><td>fix_initial</td>
 <td>False</td>
 <td>N/A</td>
 <td>[‘bool’]</td>
 <td>If True, the initial value of this control is fixed and not a design variable. This option is invalid if opt=False.</td>
 </tr>
-<tr class="row-even"><td>lower</td>
+<tr class="row-odd"><td>lower</td>
 <td>None</td>
 <td>N/A</td>
 <td>[‘Iterable’, ‘Number’]</td>
 <td>The lower bound of the control variable at the nodes. This option is invalid if opt=False.</td>
 </tr>
-<tr class="row-odd"><td>name</td>
+<tr class="row-even"><td>name</td>
 <td><strong>Required</strong></td>
 <td>N/A</td>
 <td>[‘str’]</td>
 <td>The name of ODE system parameter to be controlled.</td>
 </tr>
-<tr class="row-even"><td>opt</td>
+<tr class="row-odd"><td>opt</td>
 <td>True</td>
 <td>N/A</td>
 <td>[‘bool’]</td>
 <td>If True, the control value will be a design variable for the optimization problem.  If False, allow the control to be connected externally.</td>
 </tr>
-<tr class="row-odd"><td>rate2_continuity</td>
+<tr class="row-even"><td>rate2_continuity</td>
 <td>True</td>
 <td>N/A</td>
 <td>[‘bool’, ‘dict’]</td>
 <td>Enforce continuity of control second derivatives at segment boundaries. This option is invalid if opt=False.</td>
 </tr>
-<tr class="row-even"><td>rate2_continuity_scaler</td>
+<tr class="row-odd"><td>rate2_continuity_scaler</td>
 <td>1.0</td>
 <td>N/A</td>
 <td>[‘Number’]</td>
 <td>Scaler of the dimensionless rate continuity constraint at segment boundaries. This option is invalid if opt=False.</td>
 </tr>
-<tr class="row-odd"><td>rate2_param</td>
+<tr class="row-even"><td>rate2_param</td>
 <td>None</td>
 <td>N/A</td>
 <td>[‘Iterable’]</td>
 <td>The parameter in the ODE to which the control 2nd derivative is connected.</td>
 </tr>
-<tr class="row-even"><td>rate_continuity</td>
+<tr class="row-odd"><td>rate_continuity</td>
 <td>True</td>
 <td>N/A</td>
 <td>[‘bool’, ‘dict’]</td>
 <td>Enforce continuity of control first derivatives in dimensionless time at segment boundaries. This option is invalid if opt=False.</td>
 </tr>
-<tr class="row-odd"><td>rate_continuity_scaler</td>
+<tr class="row-even"><td>rate_continuity_scaler</td>
 <td>1.0</td>
 <td>N/A</td>
 <td>[‘Number’]</td>
 <td>Scaler of the dimensionless rate continuity constraint at segment boundaries. This option is invalid if opt=False.</td>
 </tr>
-<tr class="row-even"><td>rate_param</td>
+<tr class="row-odd"><td>rate_param</td>
 <td>None</td>
 <td>N/A</td>
 <td>[‘Iterable’]</td>
 <td>The parameter in the ODE to which the control rate is connected</td>
 </tr>
-<tr class="row-odd"><td>ref</td>
+<tr class="row-even"><td>ref</td>
 <td>None</td>
 <td>N/A</td>
 <td>[‘Iterable’, ‘Number’]</td>
 <td>The unit-reference value of the control variable at the nodes. This option is invalid if opt=False.</td>
 </tr>
-<tr class="row-even"><td>ref0</td>
+<tr class="row-odd"><td>ref0</td>
 <td>None</td>
 <td>N/A</td>
 <td>[‘Iterable’, ‘Number’]</td>
 <td>The zero-reference value of the control variable at the nodes. This option is invalid if opt=False.</td>
 </tr>
-<tr class="row-odd"><td>scaler</td>
+<tr class="row-even"><td>scaler</td>
 <td>None</td>
 <td>N/A</td>
 <td>[‘Iterable’, ‘Number’]</td>
 <td>The scaler of the control variable at the nodes. This option is invalid if opt=False.</td>
 </tr>
-<tr class="row-even"><td>shape</td>
+<tr class="row-odd"><td>shape</td>
 <td>(1,)</td>
 <td>N/A</td>
 <td>[‘Iterable’]</td>
 <td>The shape of the control variable at each point in time.</td>
 </tr>
-<tr class="row-odd"><td>targets</td>
+<tr class="row-even"><td>targets</td>
 <td>[]</td>
 <td>N/A</td>
 <td>[‘Iterable’]</td>
 <td>Used to store target information for ShootingPhase.  Should not beset by the user in add_control.</td>
 </tr>
-<tr class="row-even"><td>units</td>
+<tr class="row-odd"><td>units</td>
 <td>None</td>
 <td>N/A</td>
 <td>[‘str’]</td>
 <td>The units in which the control variable is defined.</td>
 </tr>
-<tr class="row-odd"><td>upper</td>
+<tr class="row-even"><td>upper</td>
 <td>None</td>
 <td>N/A</td>
 <td>[‘Iterable’, ‘Number’]</td>
 <td>The upper bound of the control variable at the nodes. This option is invalid if opt=False.</td>
 </tr>
-<tr class="row-even"><td>val</td>
+<tr class="row-odd"><td>val</td>
 <td>[0.]</td>
 <td>N/A</td>
 <td>[‘Iterable’, ‘ndarray’, ‘Number’]</td>
@@ -697,7 +691,7 @@ dictate the slope and intercept of the tangent of the thrust angle w.r.t. time.<
         <li class="right" >
           <a href="segments.html" title="Segments"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../user_guide.html" >Dymos User’s Guide</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="phases.html" >Phases of a Trajectory</a> &#187;</li> 
       </ul>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Commercial Aircraft Range Maximization by Differential Inclusion &#8212; dymos 0.8.3 documentation</title>
+    <title>Commercial Aircraft Range Maximization by Differential Inclusion &#8212; dymos 0.9.0 documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.8.3',
+        VERSION:     '0.9.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -41,7 +41,7 @@
         <li class="right" >
           <a href="ssto_moon_linear_tangent.html" title="SSTO Lunar Ascent with Linear Tangent Guidance"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="examples.html" accesskey="U">Examples</a> &#187;</li> 
       </ul>
     </div>
@@ -845,8 +845,8 @@ parameters.  More details on the various models involved can be found in the exa
 
 <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.t_initial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.t_duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3600.0</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:range&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">),</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:mass_fuel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">(</span><span class="mi">30000</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_disc&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:range&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">),</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.states:mass_fuel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phase</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ys</span><span class="o">=</span><span class="p">(</span><span class="mi">30000</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;state_input&#39;</span><span class="p">)</span>
 
 <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.controls:mach&#39;</span><span class="p">][:]</span> <span class="o">=</span> <span class="mf">0.8</span>
 <span class="n">p</span><span class="p">[</span><span class="s1">&#39;phase0.controls:alt&#39;</span><span class="p">][:]</span> <span class="o">=</span> <span class="mf">10.0</span>
@@ -904,24 +904,11 @@ parameters.  More details on the various models involved can be found in the exa
 </pre></div>
 </div>
 <div class="cell border-box-sizing code_cell rendered"><div class="output_area"><pre>
-Using tolerance: 1e-20
-Most common number of zero entries (36878 of 38718) repeated 7 times out of 11 tolerances tested.
+Using tolerance: 1e-18
+Most common number of zero entries (36878 of 38718) repeated 6 times out of 11 tolerances tested.
 
 Total jacobian shape: (239, 162) 
 
-1 uncolored columns
-2 columns in color 1
-2 columns in color 2
-6 columns in color 3
-6 columns in color 4
-7 columns in color 5
-7 columns in color 6
-19 columns in color 7
-22 columns in color 8
-22 columns in color 9
-22 columns in color 10
-23 columns in color 11
-23 columns in color 12
 
 
 Optimization Problem -- Optimization using pyOpt_sparse
@@ -930,11 +917,11 @@ Optimization Problem -- Optimization using pyOpt_sparse
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                   65.2933
-       User Objective Time :      60.6649
-       User Sensitivity Time :     2.8781
-       Interface Time :            0.8220
-       Opt Solver Time:            0.9283
+    Total Time:                   93.2179
+       User Objective Time :      86.1630
+       User Sensitivity Time :     4.4930
+       Interface Time :            1.2465
+       Opt Solver Time:            1.3154
     Calls to Objective Function :      40
     Calls to Sens Function :           39
 
@@ -945,7 +932,7 @@ Optimization Problem -- Optimization using pyOpt_sparse
 
    Variables (c - continuous, i - integer, d - discrete)
       Index  Name                                      Type      Lower Bound            Value      Upper Bound     Status
-          0  phase0.time_extents.t_initial_0              c     0.000000E+00     3.074291E-15     0.000000E+00         lu
+          0  phase0.time_extents.t_initial_0              c     0.000000E+00    -3.094701E-15     0.000000E+00         lu
           1  phase0.time_extents.t_duration_0             c     8.333333E-02     1.567585E+00     2.777778E+00           
           2  phase0.indep_controls.controls:alt_0         c     0.000000E+00     1.074136E+01     5.000000E+01           
           3  phase0.indep_controls.controls:alt_1         c     0.000000E+00     1.214671E+01     5.000000E+01           
@@ -1109,287 +1096,287 @@ Optimization Problem -- Optimization using pyOpt_sparse
         161  phase0.indep_states.states:range_43          c   -1.797693E+305     7.266336E-01    1.797693E+305           
 
    Constraints (i - inequality, e - equality)
-      Index  Name                                                        Type          Lower           Value           Upper    Status
-          0  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    4.042124E-13    0.000000E+00          
-          1  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00   -5.796254E-13    0.000000E+00          
-          2  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    7.406712E-13    0.000000E+00          
-          3  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00   -6.172260E-13    0.000000E+00          
-          4  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00   -3.580943E-11    0.000000E+00          
-          5  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    3.670131E-10    0.000000E+00          
-          6  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    2.388080E-08    0.000000E+00          
-          7  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    6.428352E-08    0.000000E+00          
-          8  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    5.554456E-09    0.000000E+00          
-          9  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    8.707478E-09    0.000000E+00          
-         10  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    9.632051E-09    0.000000E+00          
-         11  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    9.219195E-09    0.000000E+00          
-         12  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    1.512649E-07    0.000000E+00          
-         13  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    1.571040E-07    0.000000E+00          
-         14  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    5.207062E-08    0.000000E+00          
-         15  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    4.821375E-08    0.000000E+00          
-         16  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    1.451110E-08    0.000000E+00          
-         17  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    7.754086E-09    0.000000E+00          
-         18  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    6.833678E-09    0.000000E+00          
-         19  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    5.792508E-09    0.000000E+00          
-         20  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    2.541393E-08    0.000000E+00          
-         21  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    7.678897E-09    0.000000E+00          
-         22  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    6.255476E-08    0.000000E+00          
-         23  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    5.096138E-08    0.000000E+00          
-         24  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    4.501431E-10    0.000000E+00          
-         25  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    1.050945E-10    0.000000E+00          
-         26  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    2.645254E-12    0.000000E+00          
-         27  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00    2.909780E-13    0.000000E+00          
-         28  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00   -1.029598E-13    0.000000E+00          
-         29  phase0.collocation_constraint.defects:mass_fuel                e   0.000000E+00   -4.194657E-14    0.000000E+00          
-         30  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.383328E-17    0.000000E+00          
-         31  phase0.collocation_constraint.defects:range                    e   0.000000E+00   -2.383328E-17    0.000000E+00          
-         32  phase0.collocation_constraint.defects:range                    e   0.000000E+00    8.266419E-17    0.000000E+00          
-         33  phase0.collocation_constraint.defects:range                    e   0.000000E+00   -5.510946E-17    0.000000E+00          
-         34  phase0.collocation_constraint.defects:range                    e   0.000000E+00    7.358160E-14    0.000000E+00          
-         35  phase0.collocation_constraint.defects:range                    e   0.000000E+00   -6.859081E-13    0.000000E+00          
-         36  phase0.collocation_constraint.defects:range                    e   0.000000E+00    3.237497E-12    0.000000E+00          
-         37  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.740887E-12    0.000000E+00          
-         38  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.725275E-12    0.000000E+00          
-         39  phase0.collocation_constraint.defects:range                    e   0.000000E+00    8.564173E-13    0.000000E+00          
-         40  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.876346E-12    0.000000E+00          
-         41  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.722978E-12    0.000000E+00          
-         42  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.468624E-11    0.000000E+00          
-         43  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.669007E-11    0.000000E+00          
-         44  phase0.collocation_constraint.defects:range                    e   0.000000E+00    7.381156E-12    0.000000E+00          
-         45  phase0.collocation_constraint.defects:range                    e   0.000000E+00    7.370443E-12    0.000000E+00          
-         46  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.079224E-12    0.000000E+00          
-         47  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.348950E-12    0.000000E+00          
-         48  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.100571E-12    0.000000E+00          
-         49  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.070170E-12    0.000000E+00          
-         50  phase0.collocation_constraint.defects:range                    e   0.000000E+00    5.469764E-13    0.000000E+00          
-         51  phase0.collocation_constraint.defects:range                    e   0.000000E+00    9.892209E-13    0.000000E+00          
-         52  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.402901E-12    0.000000E+00          
-         53  phase0.collocation_constraint.defects:range                    e   0.000000E+00    2.509038E-12    0.000000E+00          
-         54  phase0.collocation_constraint.defects:range                    e   0.000000E+00    1.065317E-13    0.000000E+00          
-         55  phase0.collocation_constraint.defects:range                    e   0.000000E+00    3.794511E-14    0.000000E+00          
-         56  phase0.collocation_constraint.defects:range                    e   0.000000E+00   -1.019525E-15    0.000000E+00          
-         57  phase0.collocation_constraint.defects:range                    e   0.000000E+00    9.093061E-16    0.000000E+00          
-         58  phase0.collocation_constraint.defects:range                    e   0.000000E+00    6.554152E-16    0.000000E+00          
-         59  phase0.collocation_constraint.defects:range                    e   0.000000E+00   -1.620663E-15    0.000000E+00          
-         60  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
-         61  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
-         62  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
-         63  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
-         64  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
-         65  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
-         66  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
-         67  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
-         68  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
-         69  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    9.094947E-13    0.000000E+00          
-         70  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
-         71  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
-         72  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
-         73  phase0.continuity_constraint.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
-         74  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         75  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         76  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         77  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         78  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         79  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         80  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         81  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         82  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         83  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         84  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         85  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         86  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         87  phase0.continuity_constraint.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         88  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         89  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         90  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         91  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         92  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         93  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         94  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         95  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         96  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         97  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         98  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
-         99  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
-        100  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
-        101  phase0.continuity_constraint.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
-        102  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -1.762124E-13    0.000000E+00          
-        103  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    3.720040E-13    0.000000E+00          
-        104  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    3.876673E-12    0.000000E+00          
-        105  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    1.216967E-12    0.000000E+00          
-        106  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -3.426352E-14    0.000000E+00          
-        107  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    5.485223E-13    0.000000E+00          
-        108  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    1.393791E-12    0.000000E+00          
-        109  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -1.785068E-13    0.000000E+00          
-        110  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    2.517757E-13    0.000000E+00          
-        111  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -6.711980E-13    0.000000E+00          
-        112  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -9.300099E-14    0.000000E+00          
-        113  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    1.605491E-12    0.000000E+00          
-        114  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00    1.350962E-12    0.000000E+00          
-        115  phase0.continuity_constraint.defect_control_rates:alt_rate     e   0.000000E+00   -1.840441E-12    0.000000E+00          
-        116  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00   -1.236780E-10    0.000000E+00          
-        117  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    1.390321E-10    0.000000E+00          
-        118  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    2.913342E-11    0.000000E+00          
-        119  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    1.402720E-11    0.000000E+00          
-        120  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00   -7.523437E-11    0.000000E+00          
-        121  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00   -6.962349E-11    0.000000E+00          
-        122  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    1.003653E-11    0.000000E+00          
-        123  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00   -1.303923E-11    0.000000E+00          
-        124  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    8.820953E-12    0.000000E+00          
-        125  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    7.938858E-11    0.000000E+00          
-        126  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    6.668317E-11    0.000000E+00          
-        127  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    1.402720E-11    0.000000E+00          
-        128  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00   -5.142184E-11    0.000000E+00          
-        129  phase0.continuity_constraint.defect_control_rates:alt_rate2    e   0.000000E+00    3.549407E-10    0.000000E+00          
-        130  phase0.path_constraints.path:tau                               i   1.000000E-02    5.273523E-01    1.000000E+00          
-        131  phase0.path_constraints.path:tau                               i   1.000000E-02    5.354226E-01    1.000000E+00          
-        132  phase0.path_constraints.path:tau                               i   1.000000E-02    5.514713E-01    1.000000E+00          
-        133  phase0.path_constraints.path:tau                               i   1.000000E-02    5.685919E-01    1.000000E+00          
-        134  phase0.path_constraints.path:tau                               i   1.000000E-02    5.780950E-01    1.000000E+00          
-        135  phase0.path_constraints.path:tau                               i   1.000000E-02    5.780950E-01    1.000000E+00          
-        136  phase0.path_constraints.path:tau                               i   1.000000E-02    6.014438E-01    1.000000E+00          
-        137  phase0.path_constraints.path:tau                               i   1.000000E-02    6.518246E-01    1.000000E+00          
-        138  phase0.path_constraints.path:tau                               i   1.000000E-02    7.121955E-01    1.000000E+00          
-        139  phase0.path_constraints.path:tau                               i   1.000000E-02    7.490745E-01    1.000000E+00          
-        140  phase0.path_constraints.path:tau                               i   1.000000E-02    7.490745E-01    1.000000E+00          
-        141  phase0.path_constraints.path:tau                               i   1.000000E-02    8.119719E-01    1.000000E+00          
-        142  phase0.path_constraints.path:tau                               i   1.000000E-02    9.366211E-01    1.000000E+00          
-        143  phase0.path_constraints.path:tau                               i   1.000000E-02    1.000000E+00    1.000000E+00         u
-        144  phase0.path_constraints.path:tau                               i   1.000000E-02    9.587857E-01    1.000000E+00          
-        145  phase0.path_constraints.path:tau                               i   1.000000E-02    9.587857E-01    1.000000E+00          
-        146  phase0.path_constraints.path:tau                               i   1.000000E-02    8.690280E-01    1.000000E+00          
-        147  phase0.path_constraints.path:tau                               i   1.000000E-02    7.936124E-01    1.000000E+00          
-        148  phase0.path_constraints.path:tau                               i   1.000000E-02    7.934821E-01    1.000000E+00          
-        149  phase0.path_constraints.path:tau                               i   1.000000E-02    7.772362E-01    1.000000E+00          
-        150  phase0.path_constraints.path:tau                               i   1.000000E-02    7.772362E-01    1.000000E+00          
-        151  phase0.path_constraints.path:tau                               i   1.000000E-02    7.474479E-01    1.000000E+00          
-        152  phase0.path_constraints.path:tau                               i   1.000000E-02    7.446448E-01    1.000000E+00          
-        153  phase0.path_constraints.path:tau                               i   1.000000E-02    7.690584E-01    1.000000E+00          
-        154  phase0.path_constraints.path:tau                               i   1.000000E-02    7.677705E-01    1.000000E+00          
-        155  phase0.path_constraints.path:tau                               i   1.000000E-02    7.677705E-01    1.000000E+00          
-        156  phase0.path_constraints.path:tau                               i   1.000000E-02    7.570580E-01    1.000000E+00          
-        157  phase0.path_constraints.path:tau                               i   1.000000E-02    7.545996E-01    1.000000E+00          
-        158  phase0.path_constraints.path:tau                               i   1.000000E-02    7.624906E-01    1.000000E+00          
-        159  phase0.path_constraints.path:tau                               i   1.000000E-02    7.625012E-01    1.000000E+00          
-        160  phase0.path_constraints.path:tau                               i   1.000000E-02    7.625012E-01    1.000000E+00          
-        161  phase0.path_constraints.path:tau                               i   1.000000E-02    7.595834E-01    1.000000E+00          
-        162  phase0.path_constraints.path:tau                               i   1.000000E-02    7.591066E-01    1.000000E+00          
-        163  phase0.path_constraints.path:tau                               i   1.000000E-02    7.619924E-01    1.000000E+00          
-        164  phase0.path_constraints.path:tau                               i   1.000000E-02    7.626469E-01    1.000000E+00          
-        165  phase0.path_constraints.path:tau                               i   1.000000E-02    7.626469E-01    1.000000E+00          
-        166  phase0.path_constraints.path:tau                               i   1.000000E-02    7.621983E-01    1.000000E+00          
-        167  phase0.path_constraints.path:tau                               i   1.000000E-02    7.611460E-01    1.000000E+00          
-        168  phase0.path_constraints.path:tau                               i   1.000000E-02    7.619868E-01    1.000000E+00          
-        169  phase0.path_constraints.path:tau                               i   1.000000E-02    7.643143E-01    1.000000E+00          
-        170  phase0.path_constraints.path:tau                               i   1.000000E-02    7.643143E-01    1.000000E+00          
-        171  phase0.path_constraints.path:tau                               i   1.000000E-02    7.657630E-01    1.000000E+00          
-        172  phase0.path_constraints.path:tau                               i   1.000000E-02    7.621940E-01    1.000000E+00          
-        173  phase0.path_constraints.path:tau                               i   1.000000E-02    7.612748E-01    1.000000E+00          
-        174  phase0.path_constraints.path:tau                               i   1.000000E-02    7.681121E-01    1.000000E+00          
-        175  phase0.path_constraints.path:tau                               i   1.000000E-02    7.681121E-01    1.000000E+00          
-        176  phase0.path_constraints.path:tau                               i   1.000000E-02    7.727071E-01    1.000000E+00          
-        177  phase0.path_constraints.path:tau                               i   1.000000E-02    7.606796E-01    1.000000E+00          
-        178  phase0.path_constraints.path:tau                               i   1.000000E-02    7.569066E-01    1.000000E+00          
-        179  phase0.path_constraints.path:tau                               i   1.000000E-02    7.780996E-01    1.000000E+00          
-        180  phase0.path_constraints.path:tau                               i   1.000000E-02    7.780996E-01    1.000000E+00          
-        181  phase0.path_constraints.path:tau                               i   1.000000E-02    7.908122E-01    1.000000E+00          
-        182  phase0.path_constraints.path:tau                               i   1.000000E-02    7.502853E-01    1.000000E+00          
-        183  phase0.path_constraints.path:tau                               i   1.000000E-02    7.360465E-01    1.000000E+00          
-        184  phase0.path_constraints.path:tau                               i   1.000000E-02    7.981343E-01    1.000000E+00          
-        185  phase0.path_constraints.path:tau                               i   1.000000E-02    7.981343E-01    1.000000E+00          
-        186  phase0.path_constraints.path:tau                               i   1.000000E-02    8.527161E-01    1.000000E+00          
-        187  phase0.path_constraints.path:tau                               i   1.000000E-02    7.719047E-01    1.000000E+00          
-        188  phase0.path_constraints.path:tau                               i   1.000000E-02    4.674964E-01    1.000000E+00          
-        189  phase0.path_constraints.path:tau                               i   1.000000E-02    2.723111E-01    1.000000E+00          
-        190  phase0.path_constraints.path:tau                               i   1.000000E-02    2.723111E-01    1.000000E+00          
-        191  phase0.path_constraints.path:tau                               i   1.000000E-02    1.655282E-01    1.000000E+00          
-        192  phase0.path_constraints.path:tau                               i   1.000000E-02    1.179505E-01    1.000000E+00          
-        193  phase0.path_constraints.path:tau                               i   1.000000E-02    1.474203E-01    1.000000E+00          
-        194  phase0.path_constraints.path:tau                               i   1.000000E-02    1.634219E-01    1.000000E+00          
-        195  phase0.path_constraints.path:tau                               i   1.000000E-02    1.634219E-01    1.000000E+00          
-        196  phase0.path_constraints.path:tau                               i   1.000000E-02    1.718427E-01    1.000000E+00          
-        197  phase0.path_constraints.path:tau                               i   1.000000E-02    1.871152E-01    1.000000E+00          
-        198  phase0.path_constraints.path:tau                               i   1.000000E-02    2.005665E-01    1.000000E+00          
-        199  phase0.path_constraints.path:tau                               i   1.000000E-02    2.067200E-01    1.000000E+00          
-        200  phase0.path_constraints.path:tau                               i   1.000000E-02    2.067200E-01    1.000000E+00          
-        201  phase0.path_constraints.path:tau                               i   1.000000E-02    2.091735E-01    1.000000E+00          
-        202  phase0.path_constraints.path:tau                               i   1.000000E-02    2.135096E-01    1.000000E+00          
-        203  phase0.path_constraints.path:tau                               i   1.000000E-02    2.174311E-01    1.000000E+00          
-        204  phase0.path_constraints.path:tau                               i   1.000000E-02    2.193333E-01    1.000000E+00          
-        205  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.000000E+00    1.000000E+00         u
-        206  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.000000E+00    1.000000E+00         u
-        207  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.000000E+00    1.000000E+00         u
-        208  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.000000E+00    1.000000E+00         u
-        209  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.000000E+00    1.000000E+00         u
-        210  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.000000E+00    1.000000E+00         u
-        211  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.000000E+00    1.000000E+00         u
-        212  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.000000E+00    1.000000E+00         u
-        213  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.000000E+00    1.000000E+00         u
-        214  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.000000E+00    1.000000E+00         u
-        215  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.000000E+00    1.000000E+00         u
-        216  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    9.956650E-01    1.000000E+00          
-        217  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    9.300571E-01    1.000000E+00          
-        218  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    7.165251E-01    1.000000E+00          
-        219  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    5.149581E-01    1.000000E+00          
-        220  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    5.149581E-01    1.000000E+00          
-        221  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    2.720975E-01    1.000000E+00          
-        222  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    8.828979E-02    1.000000E+00          
-        223  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    6.122794E-02    1.000000E+00          
-        224  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    2.736166E-02    1.000000E+00          
-        225  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    2.736166E-02    1.000000E+00          
-        226  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -1.731956E-02    1.000000E+00          
-        227  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -1.070201E-02    1.000000E+00          
-        228  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    2.437546E-02    1.000000E+00          
-        229  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.764080E-02    1.000000E+00          
-        230  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.764080E-02    1.000000E+00          
-        231  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    2.419919E-04    1.000000E+00          
-        232  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -3.722132E-04    1.000000E+00          
-        233  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.069662E-02    1.000000E+00          
-        234  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    8.875194E-03    1.000000E+00          
-        235  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    8.875194E-03    1.000000E+00          
-        236  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    3.778847E-03    1.000000E+00          
-        237  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    3.485624E-03    1.000000E+00          
-        238  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    7.015670E-03    1.000000E+00          
-        239  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    7.017015E-03    1.000000E+00          
-        240  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    7.017015E-03    1.000000E+00          
-        241  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    5.578678E-03    1.000000E+00          
-        242  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    3.579771E-03    1.000000E+00          
-        243  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    4.810787E-03    1.000000E+00          
-        244  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    7.679015E-03    1.000000E+00          
-        245  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    7.679015E-03    1.000000E+00          
-        246  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    8.515952E-03    1.000000E+00          
-        247  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    2.057962E-03    1.000000E+00          
-        248  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    2.253217E-03    1.000000E+00          
-        249  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.196115E-02    1.000000E+00          
-        250  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.196115E-02    1.000000E+00          
-        251  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.583929E-02    1.000000E+00          
-        252  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -4.137703E-03    1.000000E+00          
-        253  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -3.784423E-03    1.000000E+00          
-        254  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    2.720076E-02    1.000000E+00          
-        255  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    2.720076E-02    1.000000E+00          
-        256  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    3.837077E-02    1.000000E+00          
-        257  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -2.595996E-02    1.000000E+00          
-        258  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -2.813409E-02    1.000000E+00          
-        259  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    6.591137E-02    1.000000E+00          
-        260  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    6.591137E-02    1.000000E+00          
-        261  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00    1.274502E-01    1.000000E+00          
-        262  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -2.371934E-02    1.000000E+00          
-        263  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -4.245019E-01    1.000000E+00          
-        264  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -6.957804E-01    1.000000E+00          
-        265  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -6.957804E-01    1.000000E+00          
-        266  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -8.678240E-01    1.000000E+00          
-        267  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -1.000000E+00    1.000000E+00         l
-        268  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -1.000000E+00    1.000000E+00         l
-        269  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -9.958090E-01    1.000000E+00          
-        270  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -9.958090E-01    1.000000E+00          
-        271  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -9.981910E-01    1.000000E+00          
-        272  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -1.000000E+00    1.000000E+00         l
-        273  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -1.000000E+00    1.000000E+00         l
-        274  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -9.999700E-01    1.000000E+00          
-        275  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -9.999700E-01    1.000000E+00          
-        276  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -1.000000E+00    1.000000E+00         l
-        277  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -1.000000E+00    1.000000E+00         l
-        278  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -9.999871E-01    1.000000E+00          
-        279  phase0.path_constraints.path:alt_rate                          i  -1.000000E+00   -1.000000E+00    1.000000E+00         l
+      Index  Name                                                  Type          Lower           Value           Upper    Status
+          0  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    5.109855E-13    0.000000E+00          
+          1  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00   -6.940251E-13    0.000000E+00          
+          2  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00   -4.761458E-13    0.000000E+00          
+          3  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00   -8.817514E-14    0.000000E+00          
+          4  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00   -3.546020E-11    0.000000E+00          
+          5  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    3.664758E-10    0.000000E+00          
+          6  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    2.388134E-08    0.000000E+00          
+          7  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    6.428287E-08    0.000000E+00          
+          8  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    5.554768E-09    0.000000E+00          
+          9  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    8.708458E-09    0.000000E+00          
+         10  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    9.632518E-09    0.000000E+00          
+         11  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    9.219382E-09    0.000000E+00          
+         12  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    1.512644E-07    0.000000E+00          
+         13  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    1.571033E-07    0.000000E+00          
+         14  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    5.207093E-08    0.000000E+00          
+         15  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    4.821403E-08    0.000000E+00          
+         16  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    1.451113E-08    0.000000E+00          
+         17  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    7.754558E-09    0.000000E+00          
+         18  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    6.833632E-09    0.000000E+00          
+         19  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    5.792438E-09    0.000000E+00          
+         20  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    2.541453E-08    0.000000E+00          
+         21  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    7.679043E-09    0.000000E+00          
+         22  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    6.255464E-08    0.000000E+00          
+         23  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    5.096128E-08    0.000000E+00          
+         24  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    4.502707E-10    0.000000E+00          
+         25  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    1.052154E-10    0.000000E+00          
+         26  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    2.482130E-12    0.000000E+00          
+         27  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    5.290508E-14    0.000000E+00          
+         28  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00    1.525330E-14    0.000000E+00          
+         29  phase0.collocation_constraint.defects:mass_fuel          e   0.000000E+00   -5.338655E-14    0.000000E+00          
+         30  phase0.collocation_constraint.defects:range              e   0.000000E+00    0.000000E+00    0.000000E+00          
+         31  phase0.collocation_constraint.defects:range              e   0.000000E+00   -7.149984E-17    0.000000E+00          
+         32  phase0.collocation_constraint.defects:range              e   0.000000E+00    2.755473E-17    0.000000E+00          
+         33  phase0.collocation_constraint.defects:range              e   0.000000E+00   -2.755473E-17    0.000000E+00          
+         34  phase0.collocation_constraint.defects:range              e   0.000000E+00    7.353963E-14    0.000000E+00          
+         35  phase0.collocation_constraint.defects:range              e   0.000000E+00   -6.859081E-13    0.000000E+00          
+         36  phase0.collocation_constraint.defects:range              e   0.000000E+00    3.237607E-12    0.000000E+00          
+         37  phase0.collocation_constraint.defects:range              e   0.000000E+00    1.740286E-12    0.000000E+00          
+         38  phase0.collocation_constraint.defects:range              e   0.000000E+00    1.726382E-12    0.000000E+00          
+         39  phase0.collocation_constraint.defects:range              e   0.000000E+00    8.546587E-13    0.000000E+00          
+         40  phase0.collocation_constraint.defects:range              e   0.000000E+00    2.877586E-12    0.000000E+00          
+         41  phase0.collocation_constraint.defects:range              e   0.000000E+00    1.722395E-12    0.000000E+00          
+         42  phase0.collocation_constraint.defects:range              e   0.000000E+00    1.468655E-11    0.000000E+00          
+         43  phase0.collocation_constraint.defects:range              e   0.000000E+00    1.668921E-11    0.000000E+00          
+         44  phase0.collocation_constraint.defects:range              e   0.000000E+00    7.381473E-12    0.000000E+00          
+         45  phase0.collocation_constraint.defects:range              e   0.000000E+00    7.370760E-12    0.000000E+00          
+         46  phase0.collocation_constraint.defects:range              e   0.000000E+00    2.078291E-12    0.000000E+00          
+         47  phase0.collocation_constraint.defects:range              e   0.000000E+00    2.351282E-12    0.000000E+00          
+         48  phase0.collocation_constraint.defects:range              e   0.000000E+00    1.098383E-12    0.000000E+00          
+         49  phase0.collocation_constraint.defects:range              e   0.000000E+00    2.067909E-12    0.000000E+00          
+         50  phase0.collocation_constraint.defects:range              e   0.000000E+00    5.489303E-13    0.000000E+00          
+         51  phase0.collocation_constraint.defects:range              e   0.000000E+00    9.924123E-13    0.000000E+00          
+         52  phase0.collocation_constraint.defects:range              e   0.000000E+00    1.401151E-12    0.000000E+00          
+         53  phase0.collocation_constraint.defects:range              e   0.000000E+00    2.511717E-12    0.000000E+00          
+         54  phase0.collocation_constraint.defects:range              e   0.000000E+00    1.046009E-13    0.000000E+00          
+         55  phase0.collocation_constraint.defects:range              e   0.000000E+00    3.685376E-14    0.000000E+00          
+         56  phase0.collocation_constraint.defects:range              e   0.000000E+00   -8.266419E-17    0.000000E+00          
+         57  phase0.collocation_constraint.defects:range              e   0.000000E+00    3.141239E-15    0.000000E+00          
+         58  phase0.collocation_constraint.defects:range              e   0.000000E+00   -1.346580E-15    0.000000E+00          
+         59  phase0.collocation_constraint.defects:range              e   0.000000E+00   -1.143997E-15    0.000000E+00          
+         60  phase0.continuity_comp.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
+         61  phase0.continuity_comp.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
+         62  phase0.continuity_comp.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
+         63  phase0.continuity_comp.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
+         64  phase0.continuity_comp.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
+         65  phase0.continuity_comp.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
+         66  phase0.continuity_comp.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
+         67  phase0.continuity_comp.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
+         68  phase0.continuity_comp.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
+         69  phase0.continuity_comp.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
+         70  phase0.continuity_comp.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
+         71  phase0.continuity_comp.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
+         72  phase0.continuity_comp.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
+         73  phase0.continuity_comp.defect_states:mass_fuel           e   0.000000E+00    0.000000E+00    0.000000E+00          
+         74  phase0.continuity_comp.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         75  phase0.continuity_comp.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         76  phase0.continuity_comp.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         77  phase0.continuity_comp.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         78  phase0.continuity_comp.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         79  phase0.continuity_comp.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         80  phase0.continuity_comp.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         81  phase0.continuity_comp.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         82  phase0.continuity_comp.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         83  phase0.continuity_comp.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         84  phase0.continuity_comp.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         85  phase0.continuity_comp.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         86  phase0.continuity_comp.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         87  phase0.continuity_comp.defect_states:range               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         88  phase0.continuity_comp.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         89  phase0.continuity_comp.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         90  phase0.continuity_comp.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         91  phase0.continuity_comp.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         92  phase0.continuity_comp.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         93  phase0.continuity_comp.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         94  phase0.continuity_comp.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         95  phase0.continuity_comp.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         96  phase0.continuity_comp.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         97  phase0.continuity_comp.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         98  phase0.continuity_comp.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
+         99  phase0.continuity_comp.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
+        100  phase0.continuity_comp.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
+        101  phase0.continuity_comp.defect_controls:alt               e   0.000000E+00    0.000000E+00    0.000000E+00          
+        102  phase0.continuity_comp.defect_control_rates:alt_rate     e   0.000000E+00    1.390120E-12    0.000000E+00          
+        103  phase0.continuity_comp.defect_control_rates:alt_rate     e   0.000000E+00    4.894789E-13    0.000000E+00          
+        104  phase0.continuity_comp.defect_control_rates:alt_rate     e   0.000000E+00   -1.076854E-13    0.000000E+00          
+        105  phase0.continuity_comp.defect_control_rates:alt_rate     e   0.000000E+00    6.051183E-13    0.000000E+00          
+        106  phase0.continuity_comp.defect_control_rates:alt_rate     e   0.000000E+00    1.698492E-12    0.000000E+00          
+        107  phase0.continuity_comp.defect_control_rates:alt_rate     e   0.000000E+00   -1.091691E-12    0.000000E+00          
+        108  phase0.continuity_comp.defect_control_rates:alt_rate     e   0.000000E+00    7.758241E-13    0.000000E+00          
+        109  phase0.continuity_comp.defect_control_rates:alt_rate     e   0.000000E+00   -6.357107E-13    0.000000E+00          
+        110  phase0.continuity_comp.defect_control_rates:alt_rate     e   0.000000E+00   -9.052301E-13    0.000000E+00          
+        111  phase0.continuity_comp.defect_control_rates:alt_rate     e   0.000000E+00   -5.053870E-13    0.000000E+00          
+        112  phase0.continuity_comp.defect_control_rates:alt_rate     e   0.000000E+00   -1.347291E-12    0.000000E+00          
+        113  phase0.continuity_comp.defect_control_rates:alt_rate     e   0.000000E+00    6.069539E-13    0.000000E+00          
+        114  phase0.continuity_comp.defect_control_rates:alt_rate     e   0.000000E+00    1.233487E-12    0.000000E+00          
+        115  phase0.continuity_comp.defect_control_rates:alt_rate     e   0.000000E+00   -2.271182E-12    0.000000E+00          
+        116  phase0.continuity_comp.defect_control_rates:alt_rate2    e   0.000000E+00    1.273570E-10    0.000000E+00          
+        117  phase0.continuity_comp.defect_control_rates:alt_rate2    e   0.000000E+00    9.283579E-11    0.000000E+00          
+        118  phase0.continuity_comp.defect_control_rates:alt_rate2    e   0.000000E+00    3.711814E-11    0.000000E+00          
+        119  phase0.continuity_comp.defect_control_rates:alt_rate2    e   0.000000E+00   -8.998991E-11    0.000000E+00          
+        120  phase0.continuity_comp.defect_control_rates:alt_rate2    e   0.000000E+00   -3.690234E-11    0.000000E+00          
+        121  phase0.continuity_comp.defect_control_rates:alt_rate2    e   0.000000E+00   -2.298303E-11    0.000000E+00          
+        122  phase0.continuity_comp.defect_control_rates:alt_rate2    e   0.000000E+00    2.370210E-11    0.000000E+00          
+        123  phase0.continuity_comp.defect_control_rates:alt_rate2    e   0.000000E+00    1.671463E-11    0.000000E+00          
+        124  phase0.continuity_comp.defect_control_rates:alt_rate2    e   0.000000E+00   -4.737553E-11    0.000000E+00          
+        125  phase0.continuity_comp.defect_control_rates:alt_rate2    e   0.000000E+00    2.532989E-11    0.000000E+00          
+        126  phase0.continuity_comp.defect_control_rates:alt_rate2    e   0.000000E+00    5.319547E-11    0.000000E+00          
+        127  phase0.continuity_comp.defect_control_rates:alt_rate2    e   0.000000E+00   -2.373835E-11    0.000000E+00          
+        128  phase0.continuity_comp.defect_control_rates:alt_rate2    e   0.000000E+00   -3.363831E-11    0.000000E+00          
+        129  phase0.continuity_comp.defect_control_rates:alt_rate2    e   0.000000E+00    4.112607E-10    0.000000E+00          
+        130  phase0.path_constraints.path:tau                         i   1.000000E-02    5.273523E-01    1.000000E+00          
+        131  phase0.path_constraints.path:tau                         i   1.000000E-02    5.354226E-01    1.000000E+00          
+        132  phase0.path_constraints.path:tau                         i   1.000000E-02    5.514713E-01    1.000000E+00          
+        133  phase0.path_constraints.path:tau                         i   1.000000E-02    5.685919E-01    1.000000E+00          
+        134  phase0.path_constraints.path:tau                         i   1.000000E-02    5.780950E-01    1.000000E+00          
+        135  phase0.path_constraints.path:tau                         i   1.000000E-02    5.780950E-01    1.000000E+00          
+        136  phase0.path_constraints.path:tau                         i   1.000000E-02    6.014438E-01    1.000000E+00          
+        137  phase0.path_constraints.path:tau                         i   1.000000E-02    6.518246E-01    1.000000E+00          
+        138  phase0.path_constraints.path:tau                         i   1.000000E-02    7.121955E-01    1.000000E+00          
+        139  phase0.path_constraints.path:tau                         i   1.000000E-02    7.490745E-01    1.000000E+00          
+        140  phase0.path_constraints.path:tau                         i   1.000000E-02    7.490745E-01    1.000000E+00          
+        141  phase0.path_constraints.path:tau                         i   1.000000E-02    8.119719E-01    1.000000E+00          
+        142  phase0.path_constraints.path:tau                         i   1.000000E-02    9.366211E-01    1.000000E+00          
+        143  phase0.path_constraints.path:tau                         i   1.000000E-02    1.000000E+00    1.000000E+00         u
+        144  phase0.path_constraints.path:tau                         i   1.000000E-02    9.587857E-01    1.000000E+00          
+        145  phase0.path_constraints.path:tau                         i   1.000000E-02    9.587857E-01    1.000000E+00          
+        146  phase0.path_constraints.path:tau                         i   1.000000E-02    8.690280E-01    1.000000E+00          
+        147  phase0.path_constraints.path:tau                         i   1.000000E-02    7.936124E-01    1.000000E+00          
+        148  phase0.path_constraints.path:tau                         i   1.000000E-02    7.934821E-01    1.000000E+00          
+        149  phase0.path_constraints.path:tau                         i   1.000000E-02    7.772362E-01    1.000000E+00          
+        150  phase0.path_constraints.path:tau                         i   1.000000E-02    7.772362E-01    1.000000E+00          
+        151  phase0.path_constraints.path:tau                         i   1.000000E-02    7.474479E-01    1.000000E+00          
+        152  phase0.path_constraints.path:tau                         i   1.000000E-02    7.446448E-01    1.000000E+00          
+        153  phase0.path_constraints.path:tau                         i   1.000000E-02    7.690584E-01    1.000000E+00          
+        154  phase0.path_constraints.path:tau                         i   1.000000E-02    7.677705E-01    1.000000E+00          
+        155  phase0.path_constraints.path:tau                         i   1.000000E-02    7.677705E-01    1.000000E+00          
+        156  phase0.path_constraints.path:tau                         i   1.000000E-02    7.570580E-01    1.000000E+00          
+        157  phase0.path_constraints.path:tau                         i   1.000000E-02    7.545996E-01    1.000000E+00          
+        158  phase0.path_constraints.path:tau                         i   1.000000E-02    7.624906E-01    1.000000E+00          
+        159  phase0.path_constraints.path:tau                         i   1.000000E-02    7.625012E-01    1.000000E+00          
+        160  phase0.path_constraints.path:tau                         i   1.000000E-02    7.625012E-01    1.000000E+00          
+        161  phase0.path_constraints.path:tau                         i   1.000000E-02    7.595834E-01    1.000000E+00          
+        162  phase0.path_constraints.path:tau                         i   1.000000E-02    7.591066E-01    1.000000E+00          
+        163  phase0.path_constraints.path:tau                         i   1.000000E-02    7.619924E-01    1.000000E+00          
+        164  phase0.path_constraints.path:tau                         i   1.000000E-02    7.626469E-01    1.000000E+00          
+        165  phase0.path_constraints.path:tau                         i   1.000000E-02    7.626469E-01    1.000000E+00          
+        166  phase0.path_constraints.path:tau                         i   1.000000E-02    7.621983E-01    1.000000E+00          
+        167  phase0.path_constraints.path:tau                         i   1.000000E-02    7.611460E-01    1.000000E+00          
+        168  phase0.path_constraints.path:tau                         i   1.000000E-02    7.619868E-01    1.000000E+00          
+        169  phase0.path_constraints.path:tau                         i   1.000000E-02    7.643143E-01    1.000000E+00          
+        170  phase0.path_constraints.path:tau                         i   1.000000E-02    7.643143E-01    1.000000E+00          
+        171  phase0.path_constraints.path:tau                         i   1.000000E-02    7.657630E-01    1.000000E+00          
+        172  phase0.path_constraints.path:tau                         i   1.000000E-02    7.621940E-01    1.000000E+00          
+        173  phase0.path_constraints.path:tau                         i   1.000000E-02    7.612748E-01    1.000000E+00          
+        174  phase0.path_constraints.path:tau                         i   1.000000E-02    7.681121E-01    1.000000E+00          
+        175  phase0.path_constraints.path:tau                         i   1.000000E-02    7.681121E-01    1.000000E+00          
+        176  phase0.path_constraints.path:tau                         i   1.000000E-02    7.727071E-01    1.000000E+00          
+        177  phase0.path_constraints.path:tau                         i   1.000000E-02    7.606796E-01    1.000000E+00          
+        178  phase0.path_constraints.path:tau                         i   1.000000E-02    7.569066E-01    1.000000E+00          
+        179  phase0.path_constraints.path:tau                         i   1.000000E-02    7.780996E-01    1.000000E+00          
+        180  phase0.path_constraints.path:tau                         i   1.000000E-02    7.780996E-01    1.000000E+00          
+        181  phase0.path_constraints.path:tau                         i   1.000000E-02    7.908122E-01    1.000000E+00          
+        182  phase0.path_constraints.path:tau                         i   1.000000E-02    7.502853E-01    1.000000E+00          
+        183  phase0.path_constraints.path:tau                         i   1.000000E-02    7.360465E-01    1.000000E+00          
+        184  phase0.path_constraints.path:tau                         i   1.000000E-02    7.981343E-01    1.000000E+00          
+        185  phase0.path_constraints.path:tau                         i   1.000000E-02    7.981343E-01    1.000000E+00          
+        186  phase0.path_constraints.path:tau                         i   1.000000E-02    8.527161E-01    1.000000E+00          
+        187  phase0.path_constraints.path:tau                         i   1.000000E-02    7.719047E-01    1.000000E+00          
+        188  phase0.path_constraints.path:tau                         i   1.000000E-02    4.674964E-01    1.000000E+00          
+        189  phase0.path_constraints.path:tau                         i   1.000000E-02    2.723111E-01    1.000000E+00          
+        190  phase0.path_constraints.path:tau                         i   1.000000E-02    2.723111E-01    1.000000E+00          
+        191  phase0.path_constraints.path:tau                         i   1.000000E-02    1.655282E-01    1.000000E+00          
+        192  phase0.path_constraints.path:tau                         i   1.000000E-02    1.179505E-01    1.000000E+00          
+        193  phase0.path_constraints.path:tau                         i   1.000000E-02    1.474203E-01    1.000000E+00          
+        194  phase0.path_constraints.path:tau                         i   1.000000E-02    1.634219E-01    1.000000E+00          
+        195  phase0.path_constraints.path:tau                         i   1.000000E-02    1.634219E-01    1.000000E+00          
+        196  phase0.path_constraints.path:tau                         i   1.000000E-02    1.718427E-01    1.000000E+00          
+        197  phase0.path_constraints.path:tau                         i   1.000000E-02    1.871152E-01    1.000000E+00          
+        198  phase0.path_constraints.path:tau                         i   1.000000E-02    2.005665E-01    1.000000E+00          
+        199  phase0.path_constraints.path:tau                         i   1.000000E-02    2.067200E-01    1.000000E+00          
+        200  phase0.path_constraints.path:tau                         i   1.000000E-02    2.067200E-01    1.000000E+00          
+        201  phase0.path_constraints.path:tau                         i   1.000000E-02    2.091735E-01    1.000000E+00          
+        202  phase0.path_constraints.path:tau                         i   1.000000E-02    2.135096E-01    1.000000E+00          
+        203  phase0.path_constraints.path:tau                         i   1.000000E-02    2.174311E-01    1.000000E+00          
+        204  phase0.path_constraints.path:tau                         i   1.000000E-02    2.193333E-01    1.000000E+00          
+        205  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.000000E+00    1.000000E+00         u
+        206  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.000000E+00    1.000000E+00         u
+        207  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.000000E+00    1.000000E+00         u
+        208  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.000000E+00    1.000000E+00         u
+        209  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.000000E+00    1.000000E+00         u
+        210  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.000000E+00    1.000000E+00         u
+        211  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.000000E+00    1.000000E+00         u
+        212  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.000000E+00    1.000000E+00         u
+        213  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.000000E+00    1.000000E+00         u
+        214  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.000000E+00    1.000000E+00         u
+        215  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.000000E+00    1.000000E+00         u
+        216  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    9.956650E-01    1.000000E+00          
+        217  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    9.300571E-01    1.000000E+00          
+        218  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    7.165251E-01    1.000000E+00          
+        219  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    5.149581E-01    1.000000E+00          
+        220  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    5.149581E-01    1.000000E+00          
+        221  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    2.720975E-01    1.000000E+00          
+        222  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    8.828979E-02    1.000000E+00          
+        223  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    6.122794E-02    1.000000E+00          
+        224  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    2.736166E-02    1.000000E+00          
+        225  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    2.736166E-02    1.000000E+00          
+        226  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -1.731956E-02    1.000000E+00          
+        227  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -1.070201E-02    1.000000E+00          
+        228  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    2.437546E-02    1.000000E+00          
+        229  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.764080E-02    1.000000E+00          
+        230  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.764080E-02    1.000000E+00          
+        231  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    2.419919E-04    1.000000E+00          
+        232  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -3.722132E-04    1.000000E+00          
+        233  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.069662E-02    1.000000E+00          
+        234  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    8.875194E-03    1.000000E+00          
+        235  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    8.875194E-03    1.000000E+00          
+        236  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    3.778847E-03    1.000000E+00          
+        237  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    3.485624E-03    1.000000E+00          
+        238  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    7.015670E-03    1.000000E+00          
+        239  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    7.017015E-03    1.000000E+00          
+        240  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    7.017015E-03    1.000000E+00          
+        241  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    5.578678E-03    1.000000E+00          
+        242  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    3.579771E-03    1.000000E+00          
+        243  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    4.810787E-03    1.000000E+00          
+        244  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    7.679015E-03    1.000000E+00          
+        245  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    7.679015E-03    1.000000E+00          
+        246  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    8.515952E-03    1.000000E+00          
+        247  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    2.057962E-03    1.000000E+00          
+        248  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    2.253217E-03    1.000000E+00          
+        249  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.196115E-02    1.000000E+00          
+        250  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.196115E-02    1.000000E+00          
+        251  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.583929E-02    1.000000E+00          
+        252  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -4.137703E-03    1.000000E+00          
+        253  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -3.784423E-03    1.000000E+00          
+        254  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    2.720076E-02    1.000000E+00          
+        255  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    2.720076E-02    1.000000E+00          
+        256  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    3.837077E-02    1.000000E+00          
+        257  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -2.595996E-02    1.000000E+00          
+        258  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -2.813409E-02    1.000000E+00          
+        259  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    6.591137E-02    1.000000E+00          
+        260  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    6.591137E-02    1.000000E+00          
+        261  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00    1.274502E-01    1.000000E+00          
+        262  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -2.371934E-02    1.000000E+00          
+        263  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -4.245019E-01    1.000000E+00          
+        264  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -6.957804E-01    1.000000E+00          
+        265  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -6.957804E-01    1.000000E+00          
+        266  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -8.678240E-01    1.000000E+00          
+        267  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -1.000000E+00    1.000000E+00         l
+        268  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -1.000000E+00    1.000000E+00         l
+        269  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -9.958090E-01    1.000000E+00          
+        270  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -9.958090E-01    1.000000E+00          
+        271  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -9.981910E-01    1.000000E+00          
+        272  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -1.000000E+00    1.000000E+00         l
+        273  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -1.000000E+00    1.000000E+00         l
+        274  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -9.999700E-01    1.000000E+00          
+        275  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -9.999700E-01    1.000000E+00          
+        276  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -1.000000E+00    1.000000E+00         l
+        277  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -1.000000E+00    1.000000E+00         l
+        278  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -9.999871E-01    1.000000E+00          
+        279  phase0.path_constraints.path:alt_rate                    i  -1.000000E+00   -1.000000E+00    1.000000E+00         l
 
 --------------------------------------------------------------------------------
 
@@ -1448,7 +1435,7 @@ WARNING: The following inputs are not connected:
         <li class="right" >
           <a href="ssto_moon_linear_tangent.html" title="SSTO Lunar Ascent with Linear Tangent Guidance"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">dymos 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="examples.html" >Examples</a> &#187;</li> 
       </ul>
     </div>
