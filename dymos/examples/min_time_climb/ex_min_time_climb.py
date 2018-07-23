@@ -16,7 +16,7 @@ SHOW_PLOTS = True
 
 def min_time_climb(optimizer='SLSQP', num_seg=3, transcription='gauss-lobatto',
                    transcription_order=3, top_level_jacobian='csc',
-                   force_alloc_complex=False):
+                   force_alloc_complex=False, simul_derivs=False):
 
     p = Problem(model=Group())
 
@@ -77,7 +77,7 @@ def min_time_climb(optimizer='SLSQP', num_seg=3, transcription='gauss-lobatto',
     # Minimize time at the end of the phase
     phase.add_objective('time', loc='final')
 
-    p.driver.options['dynamic_simul_derivs'] = True
+    p.driver.options['dynamic_simul_derivs'] = simul_derivs
     p.model.options['assembled_jac_type'] = top_level_jacobian.lower()
     p.model.linear_solver = DirectSolver(assemble_jac=True)
 
